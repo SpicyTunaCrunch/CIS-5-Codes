@@ -38,8 +38,11 @@ int main(int argc, char** argv) {
     cin >> payR8 >> hrsWrkd;
     
     //Map inputs -> outputs
-    paychk = hrsWrkd*payR8;//Straight time
-    paychk  += hrsWrkd>overTime?payR8*(hrsWrkd - overTime):0;// if hrs worked are greatrer than OT(40) payrate is doubled and added to check
+    if (hrsWrkd<overTime)
+        paychk = hrsWrkd*payR8;//Straight time
+    else if (hrsWrkd>overTime)
+        paychk = hrsWrkd*payR8;//straight time 
+        paychk  += hrsWrkd>overTime?payR8*(hrsWrkd - overTime):0;// if hrs worked are greatrer than OT(40) payrate is doubled and added to check
     
     cout<<"Paycheck = $ "<< fixed << setprecision(2)<<paychk;
     //Exit stage right or left!
