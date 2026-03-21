@@ -31,5 +31,5 @@ int main(int argc, char** argv){
         (p1 == 'S' && p2 == 'S') || (p1 == 's' && p2 == 's') || (p1 == 's' && p2 == 'S') || (p1 == 'S' && p2 == 's') || 
         (p1 == 'P' && p2 == 'P') || (p1 == 'p' && p2 == 'p') || (p1 == 'P' && p2 == 'p') || (p1 == 'p' && p2 == 'P')) {             
         cout << "Nobody wins.";}
-        
+return 0;
 }
