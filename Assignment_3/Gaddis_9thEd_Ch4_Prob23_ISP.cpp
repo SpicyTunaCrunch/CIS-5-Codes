@@ -13,19 +13,46 @@ using namespace std; //Entity Organizer
 int main(int argc, char** argv) {
     
     //Declare Variables
-    unsigned short int
+    char
     pkg, //package chosen
-    A, B, C, D, //Internet Packages
+    A, B, C;//Internet Packages
+    float
     bill,// monthly bill
     hrs; //how many hours used in month
 
     //Initializing
+    bill =0;
     cout << "ISP Bill\nInput Package and Hours" << endl;
     cin >> pkg >> hrs;
+
+    //Mapping
     if (hrs >0 && hrs <744){
-        
-
-
+        if (pkg == 'A'){
+            bill += 9.95f;
+            if (hrs > 10){
+                bill += (hrs-10)*2.00f;
+            }
+            else {}
+        }
+        else if (pkg == 'B'){
+            bill +=14.95f;
+            if (hrs >20){
+                bill += (hrs-20)*1.00;
+            }
+            else {}
+        }
+        else if (pkg == 'C') {
+            bill +=19.95f;
+        }
     }
-    else {}
+
+    
+    else {
+        cout << "Invalid Package!";
+    }
+
+    cout << "Bill = $ " << bill;
+        
+    //Exit stage right or left
+    return 0;
 }
