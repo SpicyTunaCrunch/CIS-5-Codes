@@ -27,26 +27,35 @@ int main(int argc, char** argv){
     cout << showpoint << fixed << setprecision(2);
     cout << "Monthly Bank Fees\nInput Current Bank Balance and number of Checks\n";
     cin >> bal >>numchks;
-    cout<< bal << endl;
-
+   
     //Mapping 
-    cout <<  "Balance     $"<<setw(9)<< bal<< endl;
-    if (bal < 0)
-    {
-        cout << "Urgent: Account is overdrawn!"<<endl;
-        {
-        if (bal == 0 && bal <= 400)
-        bal -= low;
-        }
-            if (numchks <= 19)
-                chckfee += (numchks * .1f); 
-            if (numchks == 20 && numchks <= 39)
-                chckfee += (numchks * .08f); 
-            if (numchks == 40 && numchks <= 59)
-                chckfee += (numchks * .06f); 
-            if (numchks >= 60)
-                chckfee += (numchks * .04f); 
-    }       
+        //Initaial balance checker
+    if (bal >=0){
+        cout <<  "Balance     $"<<setw(9)<< bal<< endl;
+        if (bal >= 0 && bal <= 400) { //balance under 400, add low balance fee
+            bal -= low;
+        
+            if (numchks <= 19){
+                chckfee += (numchks * .1f); }
+            else if (numchks == 20 && numchks <= 39){
+                chckfee += (numchks * .08f); }
+            else if (numchks == 40 && numchks <= 59){
+                chckfee += (numchks * .06f); }
+            else { 
+                chckfee += (numchks * .04f);}
+            }   
+        else {
+    
+            if (numchks <= 19){
+                chckfee += (numchks * .1f); }
+            else if (numchks == 20 && numchks <= 39){
+                chckfee += (numchks * .08f); }
+            else if (numchks == 40 && numchks <= 59){
+               chckfee += (numchks * .06f); }
+            else { 
+                chckfee += (numchks * .04f);}
+            }
+
     newbal = bal - (chckfee + base);
 
     //Results 
@@ -54,11 +63,10 @@ int main(int argc, char** argv){
     cout << "Monthly Fee $" <<setw(9)<< base << endl;
     cout << "Low Balance $" << setw(9)<< low<< endl;
     cout << "New Balance $" << setw(9)<< newbal;
-
-
-    return 0;    
-}
-
-
-
-
+    }
+    else {
+        cout << "Urgent: Account is overdrawn!"<<endl;
+        }
+    
+    return 0; 
+}   
