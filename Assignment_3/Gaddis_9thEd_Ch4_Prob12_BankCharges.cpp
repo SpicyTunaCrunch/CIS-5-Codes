@@ -24,8 +24,9 @@ int main(int argc, char** argv){
     base = 10; //$10 monthly fee
     low = 15; //$15 charge if balance is < $400
     chckfee = 0;
+    newbal =0;
     cout << showpoint << fixed << setprecision(2);
-    cout << "Monthly Bank Fees\nInput Current Bank Balance and number of Checks\n";
+    cout << "Monthly Bank Fees\nInput Current Bank Balance and Number of Checks\n";
     cin >> bal >>numchks;
    
     //Mapping 
@@ -33,7 +34,7 @@ int main(int argc, char** argv){
     if (bal >=0){
         cout <<  "Balance     $"<<setw(9)<< bal<< endl;
         if (bal >= 0 && bal <= 400) { //balance under 400, add low balance fee
-            bal -= low;
+            newbal -= low;
         
             if (numchks <= 19){
                 chckfee += (numchks * .1f); }
@@ -56,12 +57,13 @@ int main(int argc, char** argv){
                 chckfee += (numchks * .04f);}
             }
 
-    newbal = bal - (chckfee + base);
+    newbal += bal - (chckfee + base);
 
     //Results 
     cout << "Check Fee   $" <<setw(9) <<chckfee<< endl;
     cout << "Monthly Fee $" <<setw(9)<< base << endl;
-    cout << "Low Balance $" << setw(9)<< low<< endl;
+    if (bal>0 &&bal<400){
+        cout << "Low Balance $" << setw(9)<< low<< endl;}
     cout << "New Balance $" << setw(9)<< newbal;
     }
     else {
