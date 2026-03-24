@@ -17,12 +17,12 @@ int main(int argc, char** argv){
     string
     n1, n2, n3, //Runner names
     firstN, secN, thirdN; //order inwhc=ich names willl be placed
-    unsigned short int 
+    int 
     t1, t2, t3, //Runner times
     f1, f2, f3; //rankin of times
 
     //initialization
-    cout << "Race Ranking Program\nInput 3 Runners\nTheirnames, then their times\n";
+    cout << "Race Ranking Program\nInput 3 Runners\nTheir names, then their times\n";
     cin>>n1>>t1>>n2>>t2>>n3>>t3;
 
     //Mapping
@@ -53,8 +53,10 @@ int main(int argc, char** argv){
             f2 = t2; secN = n2;
             f3 = t1; thirdN = n3;}
     }
-    cout << left << firstN << right << setw(3) << f1 << endl;
-    cout << left << secN << right <<setw(3) << f2 << endl;
-    cout << left << thirdN << right << setw(9)<< f3;
-return 0;
+    cout << firstN << '\t' << setw(3) << f1 << endl;
+    cout << secN << '\t' << setw(3) << f2 << endl;
+    cout << thirdN << '\t' << setw(3) << f3;
+    
+    return 0;
+ 
 }
