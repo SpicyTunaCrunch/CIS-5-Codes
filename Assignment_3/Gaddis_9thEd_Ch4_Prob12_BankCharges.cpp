@@ -33,7 +33,7 @@ int main(int argc, char** argv){
         //Initaial balance checker
     if (bal >=0){
         cout <<  "Balance     $"<<setw(9)<< bal<< endl;
-        if (bal >= 0 && bal <= 400) { //balance under 400, add low balance fee
+        if (bal >= 0 && bal < 400) { //balance under 400, add low balance fee
             newbal -= low;
         
             if (numchks <= 19){
