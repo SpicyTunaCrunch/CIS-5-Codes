@@ -13,15 +13,20 @@ using namespace std; //entity organizer
 int main(int argc,char** argv){
 
     //Variable delcaration
-    unsigned int 
-    num,
-    val;
+    unsigned int
+    sum, //Sum of numbers
+    num; //User's number input
 
-    //Initialization 
+    //Initializaton
     cin >> num;
-    while () {
+    sum = 0;
+    //Mapping 
+    for (int i = 1; i <= num; i++) {
+        sum += i;
+        //cout << "Sum = "<< sum;
     }
-    cout << "Sum = " << val;
+
+    cout << "Sum = "<< sum;
 
     return 0;
 }
