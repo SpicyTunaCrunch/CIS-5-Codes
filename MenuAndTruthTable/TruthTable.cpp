@@ -29,6 +29,13 @@ int main(int argc, char** argv) {
     cout << (x?'T':'F') << " ";
     cout << (y?'T':'F') << "  ";
     cout << (!x?'T':'F')<< "   ";
+    cout << (!y?'T':'F') << "    ";
+    cout << (x||y?'T':'F') << " ";
 
+    //Row 3
+
+    //Row 4
+
+    //Exit stage left or right
     return 0;
 }
