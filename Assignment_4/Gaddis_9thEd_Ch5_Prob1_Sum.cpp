@@ -21,9 +21,9 @@ int main(int argc,char** argv){
     cin >> num;
     sum = 0;
     //Mapping 
-    for (int i = 1; i <= num; i++) {
+    for (int i = 0; i <= num; i++) {
         sum += i;
-        //cout << "Sum = "<< sum;
+        // cout << "Sum = "<< sum<< endl;       //Shows each loops output
     }
 
     cout << "Sum = "<< sum;
