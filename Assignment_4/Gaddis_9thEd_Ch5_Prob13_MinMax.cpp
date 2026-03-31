@@ -15,6 +15,9 @@ int main(int argc, char** argv){
     min, //Smallest integer
     max, //Largest integer
     num; // number input
+    //Initialization
+    min = 32767;
+    max = -32767;
     while ( cin >> num && num != -99){
         if (num < min){
             min = num;  }    
@@ -22,7 +25,7 @@ int main(int argc, char** argv){
             max = num; }
         } 
     cout << "Smallest number in the series is " << min << endl;
-    cout << "Largest Number in the series is " << max <<endl;
+    cout << "Largest  number in the series is " << max;
 
     return 0;
 }
