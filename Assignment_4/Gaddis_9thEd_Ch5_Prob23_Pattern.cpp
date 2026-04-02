@@ -19,8 +19,8 @@ int main(int argv, char** argc){
     cin >> num;
 
     //mapping
-    for (int c = 1; c <= num; c++){
-        for (int s = 0; s < c; s++){
+    for (int i = 1; i <= num; i++){
+        for (int j = 0; j < i; j++){
             cout << "+";    }
         cout << "\n";
     }
