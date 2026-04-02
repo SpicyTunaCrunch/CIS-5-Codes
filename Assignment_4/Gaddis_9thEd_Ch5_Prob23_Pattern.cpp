@@ -28,7 +28,9 @@ int main(int argv, char** argc){
         for (int j= i; j> 0; j--){
             cout << "+";
         }
-        cout << endl;
+        if (i != 1) {
+            cout << "\n";
+        }
     }
     return 0;
 }
