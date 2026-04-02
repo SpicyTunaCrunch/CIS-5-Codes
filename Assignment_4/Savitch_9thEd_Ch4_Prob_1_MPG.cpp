@@ -25,15 +25,18 @@ int main(int argc, char** argv){
     cout << fixed << setprecision(2);
     gallon = 0.264179f; //liter to gallon conversion
     do {
-    cout << "Enter number of liters of gasoline:\n\n";
-    cin >> liter;
-    cout << "Enter number of miles traveled:\n\n";
-    cin >> mile;
-    //mapping
-    mpg = mile / (liter * gallon);
-    cout << "miles per gallon:\n" << mpg << endl;
-    cout << "Again:\n";
-    cin >> again;
+        if ( again == 'y' ){
+            cout << endl;
+        }
+        cout << "Enter number of liters of gasoline:\n\n";
+        cin >> liter;
+        cout << "Enter number of miles traveled:\n\n";
+        cin >> mile;
+        //mapping
+        mpg = mile / (liter * gallon);
+        cout << "miles per gallon:\n" << mpg << endl;
+        cout << "Again:\n";
+        cin >> again;
     } while (again == 'y');
     
 
