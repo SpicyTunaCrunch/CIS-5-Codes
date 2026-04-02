@@ -31,10 +31,11 @@ int main(int argc, char** argv){
     cin >> mile;
     //mapping
     mpg = mile / (liter * gallon);
-    cout << "miles per gallon:\n\n" << mpg << endl;
-    cout << "Again:\n\n";
+    cout << "miles per gallon:\n" << mpg << endl;
+    cout << "Again:\n";
     cin >> again;
     } while (again == 'y');
+    
 
 return 0;
 }
