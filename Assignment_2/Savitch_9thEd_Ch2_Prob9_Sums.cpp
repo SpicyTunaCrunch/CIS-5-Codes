@@ -1,37 +1,90 @@
 /* 
- * File: Savitch 9th Edition Chapter 2 Problem 9 Sums
- * Author: Luis Roldan
- * Created on March 13, 2026 
- * Purpose:  Homework Assignment 2
+ * File:   main.cpp
+ * Author: Dr. Mark E. Lehr
+ * Created on Mar 5th, 2024, 10:16 AM
+ * Purpose:  Positive/Negative/Total Sums
  */
 
 //System Libraries
-#include <iostream>  //Input/Output Library
+#include <iostream>  //Input-Ouput Library
+#include <iomanip> //Formating
 using namespace std;
 
 //User Libraries
 
-//Global Constants, no Global Variables are allowed
-//Math/Physics/Conversions/Higher Dimensions - i.e. PI, e, etc...
+//Global Constants - Math,Physics,Chemistry,Conversions
 
 //Function Prototypes
 
-//Execution Begins Here!
+//Program Execution Begins Here
 int main(int argc, char** argv) {
-    //Set the random number seed
+    //Declare all variables
+    signed short input,//Input 10 values
+                sumPos,//Cumulative sum of all positive values
+                sumNeg;//Cumulative sum of all negative values
     
-    //Declare Variables
-    short int n1, n2, n3, n4, n5, n6, n7, n8, n9 ,n10, //10 random positibe or negative numbers
-        pos, //sum of the positive numbers
-        neg; //sum of the negatibe nunbers
-    //Initialize or input i.e. set variable values
-    cout << "Input 10 nymbers, any irder, ositive or negatve\n";
-    if (n1,n2,n3,n4,n5,n6,n7,n8,n9,n10 )
-
-    //Map inputs -> outputs
+    //Initialize all variables
+    sumPos=sumNeg=0;
     
-    //Display the outputs
+    //Process or Map solutions
+    cout<<"Input 10 numbers, any order, positive or negative"<<endl;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
+    
+    cin>>input;
+    //        Bool      True  False
+    sumPos += input>0? input:    0;
+    sumNeg += input<0? input:    0;
 
-    //Exit stage right or left!
+    //Display the output
+    cout<<"Negative sum ="<< setw(4) << sumNeg<<endl;
+    cout<<"Positive sum ="<< setw(4) << sumPos<<endl;
+    cout<<"Total sum    ="<< setw(4) << sumPos+sumNeg;
+    
+
+    //Exit the Program
     return 0;
 }

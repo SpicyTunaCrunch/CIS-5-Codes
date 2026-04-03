@@ -1,46 +1,55 @@
 /* 
- * File: Savitch 9th Edition Chapter 2 Problem 1 Diet Coke
- * Author: Luis Roldan
- * Created on March 7, 2026 
- * Purpose:  Homework Assignment 2
+ * File:   main.cpp
+ * Author: Dr. Mark E. Lehr
+ * Created on Feb 29th, 2024, 1:04 PM
+ * Purpose:  Diet Coke Dilema
  */
 
-
 //System Libraries
-#include <iostream>  //Input/Output Library
+#include <iostream>  //Input-Ouput Library
 using namespace std;
 
 //User Libraries
 
-//Global Constants, no Global Variables are allowed
-//Math/Physics/Conversions/Higher Dimensions - i.e. PI, e, etc...
 
 //Function Prototypes
 
-//Execution Begins Here!
+//Program Execution Begins Here
 int main(int argc, char** argv) {
-    //Set the random number seed
-    
-    //Declare Variables
-    float lthlswt,// leathal amount of sweetner (5 grams)
-        msemass,//mouse mass (35 gramms)
-        grmsplb,// grams per pound (45359.2 grams = 100lb person)
-        canmass, //single can of soda pop mass (350 grams)
-        lbgoal, //weight dieter will stop dieting
-        canswtr; // diet soda contains 1/10th of 1% (0.001f)
-    
-    //Initialize or input i.e. set variable values
-    lthlswt = 5;
-    msemass =35;
-    canmass = 350;
-    grmsplb =45359.2f/100;
-    canswtr = 0.1f*0.01f;
 
-    //Map inputs -> outputs
-
+    const float CNVLBGR=453.592;//Grams/Pound
     
-    //Display the outputs
+    //Declare all variables
+    float mm,//Mass of Mouse
+          wd,//Weight of Dieter lbs
+          md,//Mass of the Dieter when finished dieting
+         mkm,//Mass of sweetener to kill mouse
+         mkd,//Mass to kill dieter
+          ms,//Mass of sweetener in a can of coke
+         cnc,//Concentration of sweetener in 1 can of coke
+          mc;//Mass of coke contents
+    int nCans;//Number of cans
+    
+    //Initialize all variables
+    mm=35;//Grams
+    mkm=5;//Grams
+    wd=200;//lbs
+    cnc=.001;
+    mc=350;//Grams
+    
+    //Process or Map solutions
+    md=wd*CNVLBGR;//Mass of the Dieter given weight and conversion
+    mkd=md*mkm/mm;//Mass to kill dieter give mouse mass, dieter mass and mass to kill mouse
+    ms=mc*cnc;//Mass of sweetener give concentration of sweetener in a can of coke
+    nCans=mkd/ms;//Number of cans is what would kill dieter/mass of 1 can of sweetener in a coke
 
-    //Exit stage right or left!
+    //Display the output
+    cout << "Program to calculate the limit of Soda Pop Consumption.\n";
+    cout << "Input the desired dieters weight in lbs.\n";
+    cin >> wd;
+    cout << "The maximum number of soda pop cans\nwhich can be consumed is "
+        << nCans << " cans";
+
+    //Exit the Program
     return 0;
 }
