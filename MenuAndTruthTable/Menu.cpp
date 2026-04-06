@@ -23,7 +23,9 @@ do{
     if (choose <= 7 && choose >= '0'){
         cout << endl;
     }
-    cout << "This program presents a menu of options\n";
+    cout << "\n                  MENU\n";
+    cout << "'''''''''''''''''''''''''''''''''''''''''''''\n";
+    cout << " What Question would you like to run?\n";
     cout << "0 To run Problem Sorting Names\n";
     cout << "1 To run Problem Book Worm Points\n";
     cout << "2 To run Problem Bank Charges\n";
@@ -34,6 +36,7 @@ do{
     cout << "7 To run Problem Roman Conversion\n";
     cout << "What question would you like to run?\n";
     cin >> choose;
+    cout << endl;
     if (choose !='0' && choose !='1' && choose !='2' && choose !='3' && choose !='4'&& choose !='5' && choose !='6'&&choose !='7'){
         cout << "Invalid input, please enter a choice between 0-7. Would you like to retry?\n(Type y for yes or anything other key for no)\n";
         cin >> again;   }
@@ -370,5 +373,6 @@ do{
     }    
     
 } while (again == 'y' || again == 'Y'); //End Menu
+cout << "       Quiting...";
     return 0;
 }
