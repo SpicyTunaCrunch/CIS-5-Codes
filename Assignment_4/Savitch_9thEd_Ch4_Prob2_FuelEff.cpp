@@ -10,6 +10,53 @@
 #include <iomanip> //Formating library
 using namespace std; //Entity Organizer
 
+//Global Constant
+const float GAL = 0.264179f;
+
+//f(x)s
+float mpg (float &mile, float &liter){
+    return mile / (liter * GAL);    }
+
+//main f(x)
+int main(int argc, char** argv){
+    float 
+    car1L, car2L, //liter input for cars
+    m1, m2, //miles for both cars
+    mpg1, mpg2; //values to store both mpgs
+    char
+    again; //ask to repeat program?
+
+    cout << fixed << setprecision(2);
+    do {
+        if (again == 'y'){
+            cout << endl;   }
+            //CAR 1
+        cout << "Car 1\nEnter number of liters of gasoline:\n";
+        cin >> car1L;
+        cout << "Enter number of miles traveled:\n";
+        cin >> m1;
+        mpg1 = mpg(m1, car1L);
+        cout << "miles per gallon: " << mpg1 << "\n\n";
+        cout << "Car 2\nEnter number of liters of gasoline:\n";
+        cin >> car2L;
+        cout << "Enter number of miles traveled:\n";
+        cin >> m2;
+        mpg2 = mpg(m2, car2L);
+        cout << "miles per gallon: " << mpg2 << "\n\n";
+        if (mpg1 > mpg2){
+            cout << "Car 1 is more fuel efficient\n\n";   }
+        else {
+            cout << "Car 2 is more fuel efficient\n\n";   }
+        cout << "Again:\n";
+        cin >> again;
+    }   while ( again =='y');
+return 0;
+}
+
+
+
+/*      //how i wrote the program before using functions
+
 //main f(x)
 int main(int argc, char** argv){
     //Declaring variables
@@ -53,4 +100,4 @@ int main(int argc, char** argv){
         cin >> again;
     } while ( again == 'y');
 
-}   
+}   */
