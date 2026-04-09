@@ -11,9 +11,7 @@
 using namespace std; // entity organizer
 
 //function (new price - old price = diff, dif /old price)
-float inf(float &newPrice, float &oldPrice){
-    float i = newPrice - oldPrice;
-    return (i / oldPrice) * 100;    }
+float inf(float &, float &);
 
 int main(int argc, char** argv){
     //declaring variables
@@ -37,3 +35,6 @@ int main(int argc, char** argv){
     }   while (again == 'y');
     return 0;
 }
+float inf(float &currPrice, float &oldPrice){
+    float i = currPrice - oldPrice;
+    return (i / oldPrice) * 100;    }

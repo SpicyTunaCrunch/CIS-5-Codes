@@ -14,8 +14,7 @@ using namespace std; //Entity Organizer
 const float GAL = 0.264179f;
 
 //f(x)s
-float mpg (float &mile, float &liter){
-    return mile / (liter * GAL);    }
+float mpg (float &, float &);
 
 //main f(x)
 int main(int argc, char** argv){
@@ -52,6 +51,8 @@ int main(int argc, char** argv){
     }   while ( again =='y');
 return 0;
 }
+float mpg (float &mile, float &liter){
+    return mile / (liter * GAL);    }
 
 
 
