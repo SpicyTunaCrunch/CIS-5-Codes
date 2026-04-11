@@ -32,10 +32,10 @@ int main(int argc, char** argv){
     cout << "Enter year-ago price:\n";
     cin >> oP;
     infl = iR8(cP, oP);
-    cout << "Inflation rate: " << infl <<"%\n\n";
+    cout << "Inflation rate: " << infl * 100 <<"%\n\n";
     y1 = ffutR8(cP, infl);
-    y2 = ffutR8(y1, infl);
     cout << "Price in one year: $" << y1 <<endl;
+    y2 = ffutR8(y1, infl);
     cout << "Price in two years: $" << y2 <<endl<<endl;
     cout <<"Again:\n";
     cin >>again;
@@ -46,7 +46,6 @@ return 0;
 //defining f(x)s
 float iR8(float &currPrice, float &oldPrice){
     float i = currPrice - oldPrice;
-    return (i / oldPrice) * 100;    }
+    return (i / oldPrice);    }
 float ffutR8(float &currPrice, float &r8){
-    r8 = r8 / 100;
     return (r8 *currPrice) + currPrice;   }
