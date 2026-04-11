@@ -11,12 +11,8 @@
 using namespace std;
 
 //f(x)s
-float iR8(float &currPrice, float &oldPrice){
-    float i = currPrice - oldPrice;
-    return (i / oldPrice) * 100;    }
-float futR8(float &currPrice, float &r8){
-    r8 = r8 / 100;
-    return (r8 *currPrice) + currPrice;   }
+float iR8(float &, float &);
+float ffutR8(float &, float &);
 
 //main f(x)
 int main(int argc, char** argv){
@@ -27,7 +23,9 @@ int main(int argc, char** argv){
     infl, futr; // inflation rate, future rate
     char 
     again; //repeat operation
-
+    do {
+        if (again == 'y'){
+            cout << endl;   }
     cout << fixed << setprecision(2);
     cout << "Enter current price:\n";
     cin >> cP;
@@ -35,9 +33,20 @@ int main(int argc, char** argv){
     cin >> oP;
     infl = iR8(cP, oP);
     cout << "Inflation rate: " << infl <<"%\n\n";
-    do {
-        int 
-        if (int i = 1
-    }
+    y1 = ffutR8(cP, infl);
+    y2 = ffutR8(y1, infl);
+    cout << "Price in one year: $" << y1 <<endl;
+    cout << "Price in two years: $" << y2 <<endl<<endl;
+    cout <<"Again:\n";
+    cin >>again;
+    } while (again == 'y');
+return 0;
 }
 
+//defining f(x)s
+float iR8(float &currPrice, float &oldPrice){
+    float i = currPrice - oldPrice;
+    return (i / oldPrice) * 100;    }
+float ffutR8(float &currPrice, float &r8){
+    r8 = r8 / 100;
+    return (r8 *currPrice) + currPrice;   }
