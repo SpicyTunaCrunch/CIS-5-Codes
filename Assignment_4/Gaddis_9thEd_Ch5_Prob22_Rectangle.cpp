@@ -16,9 +16,16 @@ int main(int argc, char** argv){
     num; //number inputed
     char
     let; //letter inputed
-
+    do {
+    cout << "Enter a number (1-15): ";
+    cin >> num;
+    if (num > 15) {
+        cout << "Invalid! Try again.\n";
+    }
+} while (num > 15);
     //initialize
-    cin >> num >> let;
+    cout << "Enter a character:";
+    cin>> let;
 
     //mapping
     int c = 0; //Columns
