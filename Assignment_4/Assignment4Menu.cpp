@@ -56,12 +56,13 @@ again; //run another problem
         cout << "\t|  10) Parameter Maximum    |\n";
         cout << "\t'''''''''''''''''''''''''''''\n";
         cout << "\tChoose a problem to run: ";
-        cin >> choose;
-        cout << endl;
-        if  (choose < 1 || choose > 10){
-            cout << "Invalid input, Please enter a number between 1 & 10.\n(type y to return to menu or type any other key to exit)\n";
-            cin >> again;   }  
-        else {
+        do {
+            cin >> choose;
+            if (choose < 1 || choose > 10){
+                cout << "Invalid input! Please enter a number between 1 & 10.\n\tChoose a problem to run: ";
+            }
+
+        } while (choose < 1 || choose > 10);
             switch (choose){
                 case 1 : prob1(); break;
                 case 2 : prob2(); break;
@@ -75,11 +76,9 @@ again; //run another problem
                 case 10 : prob10(); break;
             }
             cout << endl << "Would you like to choose another question?\n(Type y for yes or anything other key for no)\n";
-            cin >> again; 
-        }     
-             
+            cin >> again;   
     } while (again == 'y' || again == 'Y');
- cout << "Exiting...\n\n\n\n\n\n\n";
+ cout << "\n\nExiting...\n\n\n\n\n\n\n";
  return 0;   
 }
 //Defining f(x)s
@@ -87,7 +86,7 @@ void prob1(){
     unsigned int
     sum, //Sum of numbers
     num; //User's number input
-    cout << "This program will add all of the integers from 1 up to number entered.\nType a positive integer value: ";
+    cout << "\nThis program will add all of the integers from 1 up to number entered.\nType a positive integer value: ";
     cin >> num;
     sum = 0;
     for (int i = 0; i <= num; i++) {
@@ -95,7 +94,7 @@ void prob1(){
     cout << "Sum = "<< sum;
 }
 void prob2(){
-    cout << "This program calculates how much you wwill earn over a period of time if your salary is 1 penny the first day and it doubles each day."<< endl 
+    cout << "\nThis program calculates how much you wwill earn over a period of time if your salary is 1 penny the first day and it doubles each day."<< endl 
          << "Enter the amount of days:";
     short int
     days; //Amount of days User will input
@@ -127,7 +126,7 @@ void prob2(){
     cout << change;
 }
 void prob3(){
-    cout << "This problem diplays numbers from largest to smallest.\nPlease enter number as many numbers as youd like with spaces between them."
+    cout << "\nThis problem diplays numbers from largest to smallest.\nPlease enter number as many numbers as youd like with spaces between them."
         << endl << "Enter -99 to signal the end of the series.\n";
     int
     min, //Smallest integer
@@ -144,7 +143,7 @@ void prob3(){
     cout << "Largest  number in the series is " << max;
 }
 void prob4(){
-    cout << "This problem displays a rectiangle using the character you input and the length of each side using the number you input.\n";
+    cout << "\nThis problem displays a rectiangle using the character you input and the length of each side using the number you input.\n";
     int
     num; //number inputed
     char
@@ -168,7 +167,7 @@ void prob4(){
     }
 }
 void prob5(){
-    cout << "This problem diplays a pyramid that increments from 1 to the number you input, then decraments back to 1.\n" <<
+    cout << "\nThis problem diplays a pyramid that increments from 1 to the number you input, then decraments back to 1.\n" <<
         "Enter the number youd like the pyramid to peak at: \n";
     int
     num; //number inputed by user
@@ -189,7 +188,7 @@ void prob5(){
     }
 }
 void prob6(){
-    cout << "This problem converts liters and miles into miles per gallons.\n";
+    cout << "\nThis problem converts liters and miles into miles per gallons.\n";
     float 
     liter, mile, result;
     char
@@ -212,7 +211,7 @@ float mpg (float &mile, float &liter){
     return mile / (liter * GAL);    
 }
 void prob7(){
-    cout << "This problem converts liters and miles into miles per gallons for two cars then determins what car is more fuel efficient\n";
+    cout << "\nThis problem converts liters and miles into miles per gallons for two cars then determins what car is more fuel efficient\n";
         float 
     car1L, car2L, //liter input for cars
     m1, m2, //miles for both cars
@@ -244,7 +243,7 @@ void prob7(){
     }   while ( again =='y');
 }
 void prob8(){
-    cout << "This problem gauges inflation rate for the past year.\n";
+    cout << "\nThis problem gauges inflation rate for the past year.\n";
     float 
     cP, oP, result;
     char
@@ -258,7 +257,7 @@ void prob8(){
         cout << "Enter year-ago price:\n";
         cin >> oP;
         result = inf(cP, oP);
-        cout << "Inflation rate: " << result << "%\n\nWould you like to tun this westion again?\n(enter y for yes, or any other key for no)\n";
+        cout << "Inflation rate: " << result << "%\n\nAgain: ";
         cin >> again;
     }   while (again == 'y');
 }
@@ -267,7 +266,7 @@ float inf(float &currPrice, float &oldPrice){
     return (i / oldPrice) * 100;    
 }
 void prob9(){
-    cout << "This problem estimates the price of an item in one and two years from the time of the calculation.\n";
+    cout << "\nThis problem estimates the price of an item in one and two years from the time of the calculation.\n";
     float
     y1, y2, //inflation for the next years
     cP, oP, // Current price, old price
@@ -288,7 +287,7 @@ void prob9(){
     cout << "Price in one year: $" << y1 <<endl;
     y2 = ffutR8(y1, infl);
     cout << "Price in two year: $" << y2 <<endl<<endl;
-    cout <<"Again:\n";
+    cout <<"Again: ";
     cin >>again;
     } while (again == 'y');
 }
@@ -300,7 +299,7 @@ float ffutR8(float &currPrice, float &r8){
     return (r8 *currPrice) + currPrice;   
 }
 void prob10(){
-    cout << "This program finds the max if either the frist two parameters, then of all three parameters and displays the largeest one.\n";
+    cout << "\nThis program finds the max if either the frist two parameters, then of all three parameters and displays the largeest one.\n";
     float
     p1, p2, //maximum number 
     n1, n2, n3; //numbers inputed by user
