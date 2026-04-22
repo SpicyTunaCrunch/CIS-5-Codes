@@ -233,7 +233,7 @@ void prob8(){
     cout << "Enter year-ago price:\n";
     cin >> oP;
     result = inf(cP, oP);
-    cout << "Inflation rate: " << result<<endl;
+    cout << "Inflation rate: " << result<<"%\n";
 }
 float inf(float &currPrice, float &oldPrice){
     float i = currPrice - oldPrice;
