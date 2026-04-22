@@ -188,21 +188,13 @@ void prob6(){
     cout << "\nThis problem converts liters and miles into miles per gallons.\n";
     float 
     liter, mile, result;
-    char
-    again; //repeat loop? 
     cout << fixed << setprecision(2);
-    do {
-        if ( again == 'y' ) {
-            cout << endl;   }
-        cout << "Enter number of liters of gasoline:\n\n";
-        cin >> liter;
-        cout << "Enter number of miles traveled:\n\n";
-        cin >> mile;
-        result =mpg(mile, liter);
-        cout << "miles per gallon:\n" << result << endl;
-        cout << "Again:\n";
-        cin >> again;
-    }   while (again =='y');
+    cout << "Enter number of liters of gasoline:\n\n";
+    cin >> liter;
+    cout << "Enter number of miles traveled:\n\n";
+    cin >> mile;
+    result =mpg(mile, liter);
+    cout << "miles per gallon:\n" << result << endl;
 }
 float mpg (float &mile, float &liter){
     return mile / (liter * GAL);    
@@ -213,50 +205,35 @@ void prob7(){
     car1L, car2L, //liter input for cars
     m1, m2, //miles for both cars
     mpg1, mpg2; //values to store both mpgs
-    char
-    again; //ask to repeat program?
     cout << fixed << setprecision(2);
-    do {
-        if (again == 'y'){
-            cout << endl;   }
-        cout << "Car 1\nEnter number of liters of gasoline:\n";
-        cin >> car1L;
-        cout << "Enter number of miles traveled:\n";
-        cin >> m1;
-        mpg1 = mpg(m1, car1L);
-        cout << "miles per gallon: " << mpg1 << "\n\n";
-        cout << "Car 2\nEnter number of liters of gasoline:\n";
-        cin >> car2L;
-        cout << "Enter number of miles traveled:\n";
-        cin >> m2;
-        mpg2 = mpg(m2, car2L);
-        cout << "miles per gallon: " << mpg2 << "\n\n";
-        if (mpg1 > mpg2){
-            cout << "Car 1 is more fuel efficient\n\n";   }
-        else {
-            cout << "Car 2 is more fuel efficient\n\n";   }
-        cout << "Again:\n";
-        cin >> again;
-    }   while ( again =='y');
+    cout << "Car 1\nEnter number of liters of gasoline:\n";
+    cin >> car1L;
+    cout << "Enter number of miles traveled:\n";
+    cin >> m1;
+    mpg1 = mpg(m1, car1L);
+    cout << "miles per gallon: " << mpg1 << "\n\n";
+    cout << "Car 2\nEnter number of liters of gasoline:\n";
+    cin >> car2L;
+    cout << "Enter number of miles traveled:\n";
+    cin >> m2;
+    mpg2 = mpg(m2, car2L);
+    cout << "miles per gallon: " << mpg2 << "\n\n";
+    if (mpg1 > mpg2){
+        cout << "Car 1 is more fuel efficient\n\n";   }
+    else {
+        cout << "Car 2 is more fuel efficient\n\n";   }
 }
 void prob8(){
     cout << "\nThis problem gauges inflation rate for the past year.\n";
     float 
     cP, oP, result;
-    char
-    again;
     cout << fixed << setprecision(2);
-    do {
-        if (again == 'y'){
-            cout << endl;   }
-        cout << "Enter current price:\n";
-        cin >> cP;
-        cout << "Enter year-ago price:\n";
-        cin >> oP;
-        result = inf(cP, oP);
-        cout << "Inflation rate: " << result << "%\n\nAgain: ";
-        cin >> again;
-    }   while (again == 'y');
+    cout << "Enter current price:\n";
+    cin >> cP;
+    cout << "Enter year-ago price:\n";
+    cin >> oP;
+    result = inf(cP, oP);
+    cout << "Inflation rate: " << result<<endl;
 }
 float inf(float &currPrice, float &oldPrice){
     float i = currPrice - oldPrice;
@@ -268,11 +245,6 @@ void prob9(){
     y1, y2, //inflation for the next years
     cP, oP, // Current price, old price
     infl, futr; // inflation rate, future rate
-    char 
-    again; //repeat operation
-    do {
-        if (again == 'y'){
-            cout << endl;   }
     cout << fixed << setprecision(2);
     cout << "Enter current price:\n";
     cin >> cP;
@@ -284,9 +256,6 @@ void prob9(){
     cout << "Price in one year: $" << y1 <<endl;
     y2 = ffutR8(y1, infl);
     cout << "Price in two year: $" << y2 <<endl<<endl;
-    cout <<"Again: ";
-    cin >>again;
-    } while (again == 'y');
 }
 float iR8(float &currPrice, float &oldPrice){
     float i = currPrice - oldPrice;
