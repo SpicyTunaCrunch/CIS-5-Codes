@@ -40,7 +40,7 @@ again; //run another problem
     do {
         cout << "\n\t|'''''''''''''''''''''''''''|\n";
         cout << "\t|            MENU           |\n";
-        cout << "\t|''''''''''''''''' '''''''''|\n";
+        cout << "\t|'''''''''''''''''''''''''''|\n";
         cout << "\t|  1) Sum the Sequence      |\n";
         cout << "\t|  2) Pay in Pennies        |\n";
         cout << "\t|  3) Largest and Smallest  |\n";
@@ -299,4 +299,3 @@ float max2( float &a, float &b, float &c){
         s = c;  }
     return s;
 }
- 
