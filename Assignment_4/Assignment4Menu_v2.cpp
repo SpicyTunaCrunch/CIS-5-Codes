@@ -88,7 +88,7 @@ void prob1(){
     sum = 0;
     for (int i = 0; i <= num; i++) {
         sum += i; }
-    cout << "Sum = "<< sum;
+    cout << "Sum = "<< sum <<endl;
 }
 void prob2(){
     cout << "\nThis program calculates how much you wwill earn over a period of time if your salary is 1 penny the first day and it doubles each day."<< endl 
@@ -120,7 +120,7 @@ void prob2(){
     cout << "Pay = $" << bills << ".";
     if (change < 10){
         cout << "0";    }
-    cout << change;
+    cout << change << endl;
 }
 void prob3(){
     cout << "\nThis problem diplays numbers from largest to smallest.\nPlease enter number as many numbers as youd like with spaces between them."
@@ -137,7 +137,7 @@ void prob3(){
         if (num > max){
             max = num; }    } 
     cout << "Smallest number in the series is " << min << endl;
-    cout << "Largest  number in the series is " << max;
+    cout << "Largest  number in the series is " << max << endl;
 }
 void prob4(){
     cout << "\nThis problem displays a rectiangle using the character you input and the length of each side using the number you input.\n";
@@ -180,7 +180,7 @@ void prob5(){
             cout << "+";
         }
         if (i != 1) {
-            cout << "\n";
+            cout << endl;
         }   
     }
 }
