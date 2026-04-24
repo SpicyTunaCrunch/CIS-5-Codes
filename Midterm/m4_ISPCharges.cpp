@@ -25,7 +25,7 @@ void lowest(float  &a, float &b, float &c, char &);
 //main f(x)
 int main(int argc, char** argv){
     //vairiables
-    int 
+    unsigned short int 
     hrs; //hours of usage
     char
     choice; //plan chosen
