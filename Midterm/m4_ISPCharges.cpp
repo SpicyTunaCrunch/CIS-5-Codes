@@ -3,12 +3,18 @@
 *Author: Luis Roldan
 *Created on April 23, 2026
 *Purpose: Calculate the Bill
+*   An ISP has 3 different subscription packages
+*   a)  $16.99 per month, 10 hours access.  Additional hours are $0.95 up to 20 hours then $0.85 for all additional hours.
+*   b)  $26.99 per month, 20 hours access.  Additional hours are $0.74 up to 30 hours then $0.64 for each hour above this limit.
+*   c)  $36.99 per month unlimited access
+*   Input package a,b, or c, hours access then outputs dollar amount with package they should switch to save most amount of money.
+*   Calculate the money saved and output as well.
 */
 
 //syslibraries
 #include <iostream> //input-output libraries
 #include <iomanip> // Fotmatting
-using namespace std;
+using namespace std; //entity organizing
 
 //prototypes
 float planA(int hrs);
@@ -75,9 +81,9 @@ void lowest(float &a, float &b, float &c, char &choice){
         i = b;   }
     else {
         i = c;   }
-    float m = a;
+    float m = a;  //base for cheapest plan
     char best = 'A';
-
+    //comparing other plans
     if (b < m){
         m = b; 
         best = 'B';     }
@@ -85,7 +91,7 @@ void lowest(float &a, float &b, float &c, char &choice){
         m = c;
         best = 'C';     }
     cout << fixed <<  setprecision(2);
-
+    //cout final conclusion
     if ( i == m ){
         cout << "$" << i << " " << best << " $0.00\n";    }
     else {
