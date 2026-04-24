@@ -11,9 +11,10 @@
 using namespace std;
 
 //prototypes
-float planA(int &);
-float planB(int &);
-float planC(int &);
+float planA(int hrs);
+float planB(int hrs);
+float planC(int hrs);
+void lowest(float  &a, float &b, float &c, char &);
 
 //main f(x)
 int main(int argc, char** argv){
@@ -24,27 +25,69 @@ int main(int argc, char** argv){
     choice; //plan chosen
     float 
     a, b, c; // plan totals to compate
-
-    cout << "Choose a plan and input hours usage";
+    cout<<"ISP charges for service delivered."<<endl;
+    cout<<"Input package A,B,C then hours used for the month"<<endl;   
     cin >> choice >> hrs;
-
     a = planA(hrs);
-    cout << a;
+    b = planB(hrs);
+    c = planC(hrs);
+    lowest(a, b, c, choice);
+    return 0;
 }
 //defining f(x)s
-float planA(int &hrs){
+float planA(int hrs){
     //variables
     float 
-    price; // includes a 16.99 monthly base charge
-    //extra20, //additional hour charge up to 20 hours
-    //above20; //additional hour charge above 20 hours
-    //initialization 
-    price= 16.99; 
-    if (hrs >10 && hrs <=20 ){
-        price += ((hrs-10)*.95f); 
-    }
-    if ( hrs >= 21 ){ 
-        price += ((hrs - 20) *.85f);
+    price = 16.99f; // includes a 16.99 monthly base charge
+    if (hrs >10 ){
+        hrs -= 10;
+        if (hrs > 10){
+            price += (10 * .95f)  + ((hrs -10) * .85f); }
+        else if ( hrs <=10){
+            price += (hrs * .95f);   }
     }
     return price;
+}
+float planB(int hrs){
+    //variables
+    float
+    price = 26.99f; //total price including 26.99 monthly base charge
+    if (hrs > 20){ 
+        hrs -=20;
+        if (hrs > 10){
+            price += (10* .74f) + ((hrs -10) * .64f);   }
+        else if ( hrs <= 10){
+            price += (hrs * .74f);  }
+    }
+    return price;
+}
+float planC(int hrs){
+    //varibales
+    float
+    price = 36.99f;
+    return price;
+}
+void lowest(float &a, float &b, float &c, char &choice){
+    float i; //chosen plan
+    if (choice == 'a' || choice == 'A'){
+        i = a;   }
+    else if (choice == 'b' || choice == 'B'){
+        i = b;   }
+    else {
+        i = c;   }
+    float m = a;
+    char best = 'A';
+
+    if (b < m){
+        m = b; 
+        best = 'B';     }
+    if (c < m){
+        m = c;
+        best = 'C';     }
+    cout << fixed <<  setprecision(2);
+
+    if ( i == m ){
+        cout << "$" << i << " " << best << " $0.00\n";    }
+    else {
+        cout << "$" << i << " " << best << " $" << i - m << endl;   }
 }
