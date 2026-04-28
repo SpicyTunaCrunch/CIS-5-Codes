@@ -6,6 +6,7 @@
 *   f(x) = x - x^3/3! + x^5/5! - x^7/7! + ............
 *   Input x and the number of terms used in the sequence, output the result.
 *   Note:  x^1 = x,   x^2 = x*x,  x^3 = x*x*x, 3! = 1*2*3,  5!=1*2*3*4*5
+*   !!!Flowchart is needed!!!!!
 */
 
 //sysLibraries

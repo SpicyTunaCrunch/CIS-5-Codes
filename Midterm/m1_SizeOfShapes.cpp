@@ -5,6 +5,7 @@
 *Purpose: Input a number [1-50] representing the size of the shape and then a character [x,b,f] which 
 *   represents the shape i.e. x->cross, b->backward slash, or f->forward slash.  
 *   Here are 4 examples which give the 2 inputs with the shape of the result directly below.
+*   !!!!Flowchart is needed!!!!!
 */
 
 //Sys Libraries

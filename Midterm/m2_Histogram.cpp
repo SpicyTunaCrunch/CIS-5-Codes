@@ -37,10 +37,10 @@ void hist(unsigned short int n){
     d; //4th #
     a = n /1000;
     if (a >= 1 && a <= 9){
-    cout << a << " ";
-    for (int e = 1; e <= a; e++){
-        cout << "*";    }
-        n -= a * 1000;
+        cout << a << " ";
+        for (int e = 1; e <= a; e++){
+            cout << "*";    }
+            n -= a * 1000;
     }
     else if (a == 0){
         cout << a << " ";
@@ -88,3 +88,4 @@ void hist(unsigned short int n){
     cout << endl;
 
 }
+/* use char to parse through the input substract by 48 to get the number else ifoutput that same char with ? mark */
