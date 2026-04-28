@@ -38,7 +38,7 @@ void hist(unsigned short int n){
     a = n /1000;
     if (a >= 1 && a <= 9){
     cout << a << " ";
-    for (int e = 0; e <= a; e++){
+    for (int e = 1; e <= a; e++){
         cout << "*";    }
         n -= a * 1000;
     }
@@ -51,7 +51,7 @@ void hist(unsigned short int n){
     b = n / 100;
     if (b >= 1 && b <= 9){
         cout << b << " ";
-        for (int e = 0; e <= b; e++){
+        for (int e = 1; e <= b; e++){
             cout << "*";    }
         n -= b * 100;
     }
@@ -64,7 +64,7 @@ void hist(unsigned short int n){
     c = n / 10;
     if (c >= 1 && c <= 9){
         cout << c << " ";
-        for (int e = 0; e <= c; e++){
+        for (int e = 1; e <= c; e++){
             cout << "*";    }
             n -= c * 10;
     }
@@ -77,7 +77,7 @@ void hist(unsigned short int n){
     d = n;
     if (d >= 1 && d <= 9){
         cout << d << " ";
-        for (int e = 0; e <= d; e++){
+        for (int e = 1; e <= d; e++){
             cout << "*";    }
     }
     else if (d == 0){
