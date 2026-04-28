@@ -12,37 +12,28 @@
 #include <iomanip> //formatiing library
 using namespace std; //entity organizer
 
-//prototypes
-float gross(float payr8, int hrsWrkd);
 
 //main f(x)
 int main(int argc, char** argv){
     //variables
     float
     payr8, //user inputs how much they get paid
-    hrsWrkd; //user inputs how many hours they worked
-
+    hrsWrkd, //user inputs how many hours they worked
+    c; //Check
     cout << "Paycheck Calculation.\n";
     cout << "Input payRate in $'s/hour and hours worked\n";
     cin >> payr8 >> hrsWrkd;
-    cout << "$" << fixed << setprecision(2) << gross(payr8, hrsWrkd) << endl;
-    return 0;
-}
-float gross(float payr8, int hrsWrkd){
-    //variables
-    float
-    c = 0.00f; //paycheck starts off @ $0
-    int 
-    twenty = 20, //time and a half for hours from 20-40
-    fourty = 40; //double for hours above 40
-    if (hrsWrkd <= twenty){
+
+    if (hrsWrkd <= 20){
         c = hrsWrkd * payr8;    }
-    else if (hrsWrkd <= fourty){
-        c = twenty * payr8;
-        c += (hrsWrkd - twenty) * payr8 * 1.5;   }
+    else if (hrsWrkd <= 40){
+        c = 20 * payr8;
+        c += (hrsWrkd - 20) * payr8 * 1.5;   }
     else{
-        c = twenty * payr8;
-        c += (fourty - twenty) * payr8 * 1.5;    
-        c += (hrsWrkd - fourty) * payr8 * 2;    }
-    return c;
+        c = 20 * payr8;
+        c += (20) * payr8 * 1.5;    
+        c += (hrsWrkd - 40) * payr8 * 2;    }
+
+    cout << "$" << fixed << setprecision(2) << c << endl;
+    return 0;
 }

@@ -15,26 +15,16 @@
 #include <iostream> //input-output libraries
 using namespace std; //entity organizer
 
-//prototype
-void hist(unsigned short int n);
-
 //main f(x)
 int main (int argc, char** argv){
     unsigned short int
-    n;
-    cout << "Create a histogram chart." << endl;
-    cout << "Input 4 digits as characters." << endl;
-    cin >> n;
-    hist(n);
-    return 0;
-}
-//defining f(x)s
-void hist(unsigned short int n){
-    unsigned short int
+    n,
     a, //1st #
     b, //2nd #
     c, //3rd #
     d; //4th #
+    cout << "Create a histogram chart." << endl;
+    cout << "Input 4 digits as characters." << endl;
     a = n /1000;
     if (a >= 1 && a <= 9){
         cout << a << " ";
@@ -86,6 +76,8 @@ void hist(unsigned short int n){
     else { cout << d << " ?";
     }
     cout << endl;
-
+    cin >> n;
+    return 0;
 }
-/* use char to parse through the input substract by 48 to get the number else ifoutput that same char with ? mark */
+
+/* use char to parse through the input substract by 48 to get the number else output that same char with ? mark */

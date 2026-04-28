@@ -16,6 +16,11 @@
 #include <iomanip> // Fotmatting
 using namespace std; //entity organizing
 
+//prototypes
+float planA(int hrs);
+float planB(int hrs);
+float planC(int hrs);
+void lowest(float  &a, float &b, float &c, char &);
 
 //main f(x)
 int main(int argc, char** argv){
@@ -25,54 +30,70 @@ int main(int argc, char** argv){
     char
     choice; //plan chosen
     float 
-    i, m, //placeholder
-    priceA = 16.99f, // includes a 16.99 monthly base charge
-    priceB = 26.99f, //total price including 26.99 monthly base charge
-    priceC = 36.99f;
+    a, b, c; // plan totals to compate
     cout<<"ISP charges for service delivered."<<endl;
     cout<<"Input package A,B,C then hours used for the month"<<endl;   
     cin >> choice >> hrs;
-
-    //if (choice == 'a' || choice == 'A'){
+    a = planA(hrs);
+    b = planB(hrs);
+    c = planC(hrs);
+    lowest(a, b, c, choice);
+    return 0;
+}
+//defining f(x)s
+float planA(int hrs){
+    //variables
+    float 
+    price = 16.99f; // includes a 16.99 monthly base charge
     if (hrs >10 ){
         hrs -= 10;
         if (hrs > 10){
-            priceA += (10 * .95f)  + ((hrs -10) * .85f); }
-            else if ( hrs <=10){
-                priceA += (hrs * .95f);   }   }
-    //else if (choice == 'b' || choice == 'B'){
-    if (hrs > 20){ 
-        hrs -=20;   
-        if (hrs > 10){
-            priceB += (10* .74f) + ((hrs -10) * .64f);   }
-        else if ( hrs <= 10){
-            priceB += (hrs * .74f); }   }
-    //else {   
-    m = 0;
-    char best; //best package 
-    //comparing other plans
-    if (priceA < priceB && priceA < priceC){
-        m = priceA;
-        best = 'A';
+            price += (10 * .95f)  + ((hrs -10) * .85f); }
+        else if ( hrs <=10){
+            price += (hrs * .95f);   }
     }
-    else if (priceB < priceC && priceB <priceA){
-        m = priceB; 
-        best = 'B';     }
+    return price;
+}
+float planB(int hrs){
+    //variables
+    float
+    price = 26.99f; //total price including 26.99 monthly base charge
+    if (hrs > 20){ 
+        hrs -=20;
+        if (hrs > 10){
+            price += (10* .74f) + ((hrs -10) * .64f);   }
+        else if ( hrs <= 10){
+            price += (hrs * .74f);  }
+    }
+    return price;
+}
+float planC(int hrs){
+    //varibales
+    float
+    price = 36.99f;
+    return price;
+}
+void lowest(float &a, float &b, float &c, char &choice){
+    float i; //chosen plan
+    if (choice == 'a' || choice == 'A'){
+        i = a;   }
+    else if (choice == 'b' || choice == 'B'){
+        i = b;   }
     else {
-        m = priceC;
+        i = c;   }
+    float m = a;  //base for cheapest plan
+    char best = 'A';
+    //comparing other plans
+    if (b < m){
+        m = b; 
+        best = 'B';     }
+    if (c < m){
+        m = c;
         best = 'C';     }
     cout << fixed <<  setprecision(2);
     //cout final conclusion
-    if (choice == 'a' || choice == 'A'){
-        i = priceA;   }
-    else if (choice == 'b' || choice == 'B'){
-        i = priceB;   }
-    else {
-        i = priceC;   }
     if ( i == m ){
         cout << "$" << i << " " << best << " $0.00\n";    }
     else {
         cout << "$" << i << " " << best << " $" << i - m << endl;   }
-
-    return 0;
 }

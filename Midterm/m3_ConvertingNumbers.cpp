@@ -11,28 +11,23 @@
 #include <string> //string library
 using namespace std; //entity organizer
 
-//prototypes
-void conv(unsigned short int number);
 //main f(x)
 int main(int argc, char ** argv){
     //Variables
-    unsigned short number;
-    
-    cout<<"Input an integer [1-3000] convert to an English Check value."<<endl;
-    cin>>number;
-
-    conv(number);
-    cout << "and no/100's Dollars\n";
-    return 0;
-}
-void conv(unsigned short int number){
+    unsigned short 
+    number,
+    thous,
+    hundos,
+    tens,
+    ones;
     string
     w1000 = "",
     w100 = "",
     w10 = "",
     w1 = ""; //word conversion of the words
-    unsigned short int
-    thous,  hundos, tens, ones;
+    
+    cout<<"Input an integer [1-3000] convert to an English Check value."<<endl;
+    cin>>number;
     thous = number/1000; //looking for thousands
     number -= thous*1000; //substracting thousands
     hundos = number/100; //looking for hundreds
@@ -40,7 +35,6 @@ void conv(unsigned short int number){
     tens = number/10; //looking for tens
     number -= tens*10; //substracting tens
     ones = number; // remainfder are ones
-
     switch (thous){
         case 9: w1000 += "Nine Thousand "; break;
         case 8: w1000 += "Eight Thousand "; break;
@@ -101,5 +95,7 @@ void conv(unsigned short int number){
         }
     }
     cout << w1000 << w100 << w10 << w1;
+    cout << "and no/100's Dollars\n";
+    return 0;
 }
     
