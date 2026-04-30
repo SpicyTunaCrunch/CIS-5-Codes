@@ -17,67 +17,53 @@ using namespace std; //entity organizer
 
 //main f(x)
 int main (int argc, char** argv){
-    unsigned short int
-    n,
-    a, //1st #
-    b, //2nd #
-    c, //3rd #
-    d; //4th #
+    char
+    a, //1st place
+    b, //2nd place
+    c, //3rd place
+    d; //4th place
+    a = ' ';
+    b = ' '; 
+    c = ' ';
+    d = ' ';
     cout << "Create a histogram chart." << endl;
     cout << "Input 4 digits as characters." << endl;
-    a = n /1000;
-    if (a >= 1 && a <= 9){
-        cout << a << " ";
-        for (int e = 1; e <= a; e++){
-            cout << "*";    }
-            n -= a * 1000;
-    }
-    else if (a == 0){
-        cout << a << " ";
-    }
-    else { cout << a << " ?";
-    }
-    cout << endl;
-    b = n / 100;
-    if (b >= 1 && b <= 9){
-        cout << b << " ";
-        for (int e = 1; e <= b; e++){
-            cout << "*";    }
-        n -= b * 100;
-    }
-    else if (b == 0){
-    cout << b << " ";
-    }
-    else { cout << b << " ?";
-    }
-    cout << endl;
-    c = n / 10;
-    if (c >= 1 && c <= 9){
-        cout << c << " ";
-        for (int e = 1; e <= c; e++){
-            cout << "*";    }
-            n -= c * 10;
-    }
-    else if (c == 0){
-    cout << c << " ";
-    }
-    else { cout << c << " ?";
-    }
-    cout << endl;
-    d = n;
-    if (d >= 1 && d <= 9){
+    cin >> a >> b >> c >> d;
+    if (d - 48 >= 0 && d - 48 <= 9){
         cout << d << " ";
-        for (int e = 1; e <= d; e++){
+        for (int i = 0; i < (d - 48); i++){
             cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << d << " ?\n";
     }
-    else if (d == 0){
-    cout << d << " ";
+    if (c - 48 >= 0 && c- 48 <= 9){
+        cout << c << " ";
+        for (int i = 0; i < (c - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << c << " ?\n";
     }
-    else { cout << d << " ?";
+    if (b - 48 >= 0 && b - 48 <= 9){
+        cout << b << " ";
+        for (int i = 0; i < (b - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << b << " ?\n";
     }
-    cout << endl;
-    cin >> n;
+    if (a - 48 >= 0 && a - 48 <= 9){
+        cout << a << " ";
+        for (int i = 0; i < (a - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << a << " ?\n";
+    }
     return 0;
 }
-
-/* use char to parse through the input substract by 48 to get the number else output that same char with ? mark */
