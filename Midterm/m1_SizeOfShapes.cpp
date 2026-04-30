@@ -12,8 +12,6 @@
 #include <iostream> // input-output library
 using namespace std; // entity organizer
 
-//prototypes
-
 //main f(x)
 int main (int argc, char** argv){
     //Variables
@@ -24,8 +22,56 @@ int main (int argc, char** argv){
     cout << "Create a numbered shape that can be sized." << endl;
     cout << "Input an integer number [1,50] and a character [x,b,f]." << endl;
     cin >> n >> shape;
-    
+
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            if (n % 2 != 0){
+                if ( shape == 'b'){
+                    if (i == j){
+                        cout << (n - i);    } 
+                    else {
+                        cout << " ";    }
+                }
+                else if ( shape == 'f'){
+                    if ( j == (n - i - 1)) {
+                        cout << (i + 1);    }
+                    else {
+                        cout << " ";}
+                }
+                else if ( shape == 'x'){
+                    if (i == j ){
+                        cout << (n - i);    } 
+                    else if (j == (n - i - 1)  ){
+                        cout << (i + 1);    }
+                    else {
+                        cout << " ";    }
+                }
+            }
+            else {
+                if ( shape == 'b'){
+                    if (i == j){
+                        cout << (i + 1);    } 
+                    else {
+                        cout << " ";    }
+                }
+                else if ( shape == 'f'){
+                    if ( j == (n - i - 1)) {
+                        cout << (n - i);    }
+                    else {
+                        cout << " ";}
+                }
+                else if ( shape == 'x'){
+                    if (i == j ){
+                        cout << (i + 1);    } 
+                    else if (j == (n - i - 1)  ){
+                        cout << (n - i);    }
+                    else {
+                        cout << " ";    }
+                }
+            }
+
+        }  
+        cout << endl; 
+    }
     return 0;
 }
-
-//defining f(x)s

@@ -58,7 +58,7 @@ int main(int argc, char ** argv){
         case 1: w100 += "One Hundred "; break;
     }
     if ( tens == 1){
-        switch (tens + ones){
+        switch (10 + ones){
             case 19: w1 += "Nineteen "; break;
             case 18: w1 += "Eighteen "; break;
             case 17: w1 += "Seventeen "; break;
