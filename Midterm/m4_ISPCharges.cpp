@@ -35,32 +35,35 @@ int main(int argc, char** argv){
 
     //if (choice == 'a' || choice == 'A'){
     if (hrs >10 ){
-        hrs -= 10;
-        if (hrs > 10){
-            priceA += (10 * .95f)  + ((hrs -10) * .85f); }
-            else if ( hrs <=10){
-                priceA += (hrs * .95f);   }   }
+        int hrsA = hrs;
+        hrsA -= 10;
+        if (hrsA > 10){
+            priceA += (10 * .95f)  + ((hrsA -10) * .85f); }
+            else if ( hrsA <=10){
+                priceA += (hrsA * .95f);   }   }
     //else if (choice == 'b' || choice == 'B'){
-    if (hrs > 20){ 
-        hrs -=20;   
-        if (hrs > 10){
-            priceB += (10* .74f) + ((hrs -10) * .64f);   }
-        else if ( hrs <= 10){
-            priceB += (hrs * .74f); }   }
+    if (hrs > 20){
+        int hrsB = hrs;
+        hrsB -=20;   
+        if (hrsB > 10){
+            priceB += (10* .74f) + ((hrsB -10) * .64f);   }
+        else if ( hrsB <= 10){
+            priceB += (hrsB * .74f); }   }
     //else {   
     m = 0;
     char best; //best package 
     //comparing other plans
-    if (priceA < priceB && priceA < priceC){
-        m = priceA;
-        best = 'A';
+    m = priceA;
+    best = 'A';
+
+    if (priceB < m){
+        m = priceB;
+        best = 'B';
     }
-    else if (priceB < priceC && priceB <priceA){
-        m = priceB; 
-        best = 'B';     }
-    else {
+    if (priceC < m){
         m = priceC;
-        best = 'C';     }
+        best = 'C';
+    }
     cout << fixed <<  setprecision(2);
     //cout final conclusion
     if (choice == 'a' || choice == 'A'){
