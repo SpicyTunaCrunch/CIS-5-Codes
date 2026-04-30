@@ -1,5 +1,5 @@
 /*
-*File: Midterm QUestion 1 Size of Shapes
+*File: Midterm Question 1 Size of Shapes
 *Authot: Luis Roldan
 *Created on April 27, 2026 
 *Purpose: Input a number [1-50] representing the size of the shape and then a character [x,b,f] which 
@@ -22,9 +22,9 @@ int main (int argc, char** argv){
     cout << "Create a numbered shape that can be sized." << endl;
     cout << "Input an integer number [1,50] and a character [x,b,f]." << endl;
     cin >> n >> shape;
-
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < n; j++){
+    //(i,j) coordinates on grid
+    for (int i = 0; i < n; i++){    //row
+        for (int j = 0; j < n; j++){    //column
             if (n % 2 != 0){
                 if ( shape == 'b'){
                     if (i == j){

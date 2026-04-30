@@ -15,6 +15,7 @@
 //sys libraries
 #include <iostream> // input-output library
 #include <iomanip> //formatting library
+#include <cmath> //math library
 using namespace std;
 
 //prototypes
@@ -134,7 +135,54 @@ void problem1(){
 }
 
 void problem2(){
-    
+    char
+    a, //1st place
+    b, //2nd place
+    c, //3rd place
+    d; //4th place
+    a = ' ';
+    b = ' '; 
+    c = ' ';
+    d = ' ';
+    cout << "Create a histogram chart." << endl;
+    cout << "Input 4 digits as characters." << endl;
+    cin >> a >> b >> c >> d;
+    if (d - 48 >= 0 && d - 48 <= 9){
+        cout << d << " ";
+        for (int i = 0; i < (d - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << d << " ?\n";
+    }
+    if (c - 48 >= 0 && c- 48 <= 9){
+        cout << c << " ";
+        for (int i = 0; i < (c - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << c << " ?\n";
+    }
+    if (b - 48 >= 0 && b - 48 <= 9){
+        cout << b << " ";
+        for (int i = 0; i < (b - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << b << " ?\n";
+    }
+    if (a - 48 >= 0 && a - 48 <= 9){
+        cout << a << " ";
+        for (int i = 0; i < (a - 48); i++){
+            cout << "*";    }
+        cout << endl;
+        }
+    else {
+        cout << a << " ?\n";
+    }
 }
 
 void problem3(){
@@ -307,5 +355,27 @@ void problem5(){
 }
 
 void problem6(){
+    //Variables
+    float x,fx,term;
+    int nterms,
+    pwr, sign;
+    pwr = 1;
+    sign = 1; 
+    cout << fixed << setprecision(6);
+    cout << "Calculate a series f(x)=x-x^3/3!+x^5/5!-x^7/7!+......." << endl;
+    cout << "Input x and the number of terms, output f(x)" << endl;
+    cin >> x >> nterms;
     
+    for(float i = 0; i < nterms; i++){
+        int 
+        fact = 1;
+        for (int j = 1; j <= pwr; j ++){
+            fact *= j;
+        }
+        term = sign * (pow (x, pwr) / fact);
+        fx += term;
+        pwr +=2;
+        sign *= -1;
+    }
+    cout << fx << endl;
 }
