@@ -356,9 +356,11 @@ void problem5(){
 
 void problem6(){
     //Variables
+    //Variables
     float x,fx,term;
     int nterms,
     pwr, sign;
+    fx = 0.0f;
     pwr = 1;
     sign = 1; 
     cout << fixed << setprecision(6);
@@ -366,8 +368,8 @@ void problem6(){
     cout << "Input x and the number of terms, output f(x)" << endl;
     cin >> x >> nterms;
     
-    for(float i = 0; i < nterms; i++){
-        int 
+    for(int i = 0; i < nterms; i++){
+        float 
         fact = 1;
         for (int j = 1; j <= pwr; j ++){
             fact *= j;

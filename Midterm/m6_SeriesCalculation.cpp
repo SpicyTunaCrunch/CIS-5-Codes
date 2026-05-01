@@ -23,6 +23,7 @@ int main(int argc, char** argv){
     float x,fx,term;
     int nterms,
     pwr, sign;
+    fx = 0.0f;
     pwr = 1;
     sign = 1; 
     cout << fixed << setprecision(6);
@@ -31,7 +32,7 @@ int main(int argc, char** argv){
     cin >> x >> nterms;
     
     for(int i = 0; i < nterms; i++){
-        int 
+        float 
         fact = 1;
         for (int j = 1; j <= pwr; j ++){
             fact *= j;
@@ -41,6 +42,6 @@ int main(int argc, char** argv){
         pwr +=2;
         sign *= -1;
     }
-    cout << fx;
+    cout << fx << endl;
     return 0;
 }
