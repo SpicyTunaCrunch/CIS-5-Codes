@@ -18,18 +18,19 @@ int main(int argv,char **argc) {
         //Set the Random Number Seed
 
         //Declare Variebales
-        short a,b,c;//+-2^15
+       
 
         //Initialize Variables
-        a=10;
-        b=30;
+
         
         //Mapping Input to Output
-        c=a+b;
+
 
         //Display the Results 
-        cout<<c<<" =   "<<a<<" + "<<b<<endl;
+  
 
         //exit Stage right
         return 0;
 }
+
+//Define Functions
