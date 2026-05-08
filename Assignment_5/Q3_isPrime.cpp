@@ -8,6 +8,7 @@
 
 //sys Libraries
 #include <iostream> //input - output library
+#include <cmath>
 using namespace std; //entity organizer
 
 //prototypes 
@@ -17,15 +18,14 @@ bool isPrime(int);
 int main(int argc, char** argv){
     //variables
     int n;
-    //Initialization
     cout << "Input a number to test if Prime.\n";
     cin >> n;
     isPrime(n);
     if (isPrime(n) == true){
-        cout << n << " is a prime.";
+        cout << n << " is prime.";
     }
     else {
-        cout << n << " is not a prime.";
+        cout << n << " is not prime.";
     }
     return 0;
 }
@@ -35,7 +35,7 @@ bool isPrime(int n){
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i <  n; i++){
+    for (int i = 2; i <= sqrt(n); i++){
         if (n % i == 0){
             return false;   }
     }
