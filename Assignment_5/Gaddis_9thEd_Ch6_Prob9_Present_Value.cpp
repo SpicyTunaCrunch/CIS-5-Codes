@@ -3,27 +3,12 @@
 *Author: Luis Roldan
 *Created on May 7, 2026
 *Purpose: Calculate Present Value
-*   Suppose you want to deposit a certain amount of money into a savings account, and
-*   then leave it alone to draw interest for the next 10 years. At the end of 10 years you
-*   would like to have $10,000 in the account. How much do you need to deposit today
-*   to make that happen? You can use the following formula, which is known as the
-*   present value formula, to find out:
-*   P=F/(1+r)^n
-*   The terms in the formula are as follows:
-*   • P is the present value, or the amount that you need to deposit today.
-*   • F is the future value that you want in the account. (In this case, F is $10,000.)
-*   • r is the annual interest rate.
-*   • n is the number of years that you plan to let the money sit in the account.
-*   Write a program that has a function named
-*   float psntVal(float,float,int) that performs this calculation.
-*   The function should accept the future value, annual interest rate, and number of
-*   years as arguments. It should return the present value, which is the amount that you
-*   need to deposit today. Demonstrate the function in a program that lets the user experiment
-*   with different values for the formula's terms.
+*         P=F/(1+r)^n
 */
 
 //sys libraries
 #include <iostream> //input-output library
+#include <iomanip> //formatting library
 using namespace std; //entity organizer
 
 //prototype
@@ -31,9 +16,30 @@ float psntVal(float, float, int);
 
 //main f(x)
 int main(int argc, char** argv){
-
+    //Variables
+    float 
+    ftr_Val, //Future Value desire
+    rate; //interest rate %
+    int 
+    time;   //Nuber of years
+    cout << "This is a Present Value Computation\n";
+    cout << "Input the Future Value in Dollars\n";
+    cin >> ftr_Val;
+    cout << "Input the Number of Years\n";
+    cin >> time;
+    cout << "Input the Interest Rate %/yr\n";
+    cin >> rate;
+    cout << "The Present Value = $";
+    cout << fixed << setprecision(2) << psntVal(rate, ftr_Val, time);
+    return 0;
 }
 //f(x) definition
-float psntVal(float ,float ,int ){
-
+float psntVal(float rate,float ftr_Val,int time){
+    float
+    power = 1,
+    base = (1 + (rate/100));  
+    for (int i = 0; i <time; i++){
+        power *= base  ;
+    }
+    return (ftr_Val/ power);    
 }
