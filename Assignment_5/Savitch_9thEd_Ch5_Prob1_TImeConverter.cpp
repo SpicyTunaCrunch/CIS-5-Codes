@@ -11,20 +11,23 @@ using namespace std; //entity organizer
 
 //prototypes
 void input(int &hr, int &min);
-void convrt(int &hr,char &mer);
-void output(int hr, int min, char mer);
+void convrt(int &hr, int &dhr, int &min, char &mer);
+void output(int hr, int dhr, int min, char mer);
 //main f(x)
 int main(int argc, char** argv){
-    int 
+    int
+    dhr, 
     hr, //hour
     min; //minutes
     char
     mer, //meridiem
     again; //repeat program?
+    cout << "Military Time Converter to Standard Time\n";
+    cout << "Input Military Time hh:mm\n";
     do {
     input(hr, min);
-    convrt (hr, mer);
-    output(hr, min, mer);
+    convrt (hr, dhr, min, mer);
+    output(hr, dhr, min, mer);
     cout << "Would you like to convert another time (y/n)\n";
     cin >> again;
     } while (again == 'y' || again == 'Y');
@@ -32,30 +35,42 @@ int main(int argc, char** argv){
 }
 //defining f(x)
 void input(int &hr, int &min){
-    cout << "Military Time Converter to Standard Time\n";
-    cout << "Input Military Time hh:mm\n";
-    cin >> hr >> min;
-    cout << hr << ":" << min << " = ";
+    char 
+    cologn; // ':'
+    cin >> hr >> cologn >>  min;
 }
-void convrt(int &hr, char &mer){
-    if (hr == 0){
-        hr = 12;
+void convrt(int &hr, int &dhr, int &min, char &mer){
+    if (hr == 0 ){
+        dhr = 12;
         mer = 'A';  }
     else if (hr < 12){
+        dhr = hr;
         mer = 'A';  }
     else if ( hr == 12){
+        dhr = hr;
         mer = 'P';  }
     else {
-        hr -= 12;
+        dhr = hr - 12;
         mer = 'P';  }
 }
-void output(int hr, int min, char mer){
-    cout << hr << ":";
-    if (min < 20){
+void output(int hr, int dhr, int min, char mer){
+    if (hr < 10){
         cout << "0";    }
-    cout << min << " ";
-    if (mer == 'A'){
-        cout << "AM\n";     }
+    cout << hr << ":" << min;
+    if (hr < 24 && min < 60){
+    cout << " = ";
+        if (dhr == 0){
+            cout << "0";    }
+        cout << dhr << ":";
+        if (min < 10){
+            cout << "0";    }
+        cout << min << " ";
+        if (mer == 'A'){
+            cout << "AM\n";     }
+        else {
+            cout << "PM\n";     }
+        }
     else {
-        cout << "PM\n";     }
+        cout << " is not a valid time\n";
+        }
 }
