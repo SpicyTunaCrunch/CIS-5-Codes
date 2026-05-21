@@ -13,7 +13,7 @@
 using namespace std; //entity organizer
 
 //prototypes
-int collatz(int);
+int colSqu(int);
 
 //main f(x)
 int main(int argc, char** argv){
@@ -23,12 +23,12 @@ int main(int argc, char** argv){
     cout << "Collatz Conjecture Test\nInput a sequence start\n";
     cin >> n;
     cout << n << ", ";
-    ns = collatz(n);
+    ns = colSqu(n);
     //mapping
     cout << "Sequence start of " << n << " cycles to 1 in "<< ns << " steps";
     return 0;
 }
-int collatz(int n){
+int colSqu(int n){
    int i = 1;
     while (n != 1){
         if (n % 2 == 0){
