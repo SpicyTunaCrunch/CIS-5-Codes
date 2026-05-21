@@ -16,6 +16,8 @@ using namespace std; //STD Name-space where Library is complied
 //Function Prototypes
 void filAray( int[], int);
 void prntAry(int [], int, int);
+int linSrch(int [], int, int);
+int binSrch(int [], int, int);
 //void swap1(int&, int &);
 //void swap2(int&, int &);
 //void smllst(int [], int, int);  //(array, size, position)
@@ -82,4 +84,24 @@ void mrkSrt1(int a[], int n){
                         }
                 }
         }
+}
+int linSrch(int a[], int n, int val){
+        for (int i = 0; i <n ; i++){
+                if (a[i] == val) return i;
+        }
+        return -1;
+}
+int binSrch(int a[], int n, int val){
+        int beg = a[0], end = a[n-1];
+        do{
+                int middle = (beg +end) / 2;
+                if(a[middle] == val ) return middle;
+                else if (val > a[middle]){
+                        beg = middle + 1;
+                }
+                else {
+                        end = middle - 2;
+                }
+        }while(end >= beg);
+        return -1;
 }
