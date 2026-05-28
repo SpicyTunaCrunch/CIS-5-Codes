@@ -25,18 +25,23 @@ int main(int argv,char **argc) {
         srand(static_cast<unsigned int>(time(0)));
         //Declare Variebales
         const int SIZE = 100;
-        int array[SIZE];
+        int array[SIZE], val2fnd;
+
         //Initialize Variables
         filAray(array, SIZE);
-        //prntAry(array, SIZE, 10);
+        prntAry(array, SIZE, 10);
+        val2fnd = rand() % 90 + 10;
         
         //Mapping Input to Output
-        int beg=time(0);
+        cout << "\nBefore Sorting\n";
+        cout << val2fnd << " found at indez " << linSrch(array, SIZE,val2fnd);
         mrkSrt1(array, SIZE);
-        int end = time(0);
-        cout << "Mark Sort 1 Fucntion Array Size = " << SIZE << " sortrd in " << end-beg<< " secs." << endl;
+        cout << "\nAfter Sorting\n";
+        cout << val2fnd << " found at indez " << linSrch(array, SIZE,val2fnd);
+        cout << endl <<endl;
+
         //Display the Results 
-        //prntAry(array, SIZE, 10);
+        prntAry(array, SIZE, 10);
 
         //exit Stage right
         return 0;
@@ -44,7 +49,7 @@ int main(int argv,char **argc) {
 //Define Functions
 void filAray( int a[], int n){
         for (int i = 0; i < n; i++){
-                a[i]= rand()%90+10;
+                a[i]= rand() % 90 + 10;
         }
 }
 void prntAry(int a[], int n, int perline){
@@ -68,7 +73,7 @@ void mrkSrt1(int a[], int n){
         }
 }
 int linSrch(int a[], int n, int val){
-        for (int i = 0; i <n ; i++){
+        for (int i = 0; i < n ; i++){
                 if (a[i] == val) return i;
         }
         return -1;

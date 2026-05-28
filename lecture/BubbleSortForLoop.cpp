@@ -53,17 +53,16 @@ void prntAry(int a[], int n, int perline){
 }
 
 void bubSort(int a[], int n){
-        bool swap;                                      //1 Delcaratin of Swap, how well keep looping                           
-        do{                                             //2 Loops for Awaps
-                swap = false;                           //3 Set Loop Variable
-                for (int j = 0; j < n-1; j++){          //4 Sublists From Bottom Up
-                        if (a[j] > a[j+1]){             //5 Test for Swap, if you wanted to reverse swap you can chanve > for < symbol
-                                int temp = a[j];        //6 Swap 
-                                a[j] = a[j+1];          //7
-                                a[j+1] = temp;          //8
-                                swap = true;            //9 Setting Initial Swap
+        bool swap;                                                               
+        for (bool swap = true; swap; n--){              //1 Loops for Awaps
+                swap = false;                           //2 Set Loop Variable
+                for (int j = 0; j < n-1; j++){          //3 Sublists From Bottom Up
+                        if (a[j] > a[j+1]){             //4 Test for Swap, if you wanted to reverse swap you can chanve > for < symbol
+                                int temp = a[j];        //5 Swap 
+                                a[j] = a[j+1];          //6
+                                a[j+1] = temp;          //7
+                                swap = true;            //8 Setting Initial Swap
                         }
                 }
-                n--;                                   //10 Reset Bottom of List
-        }while (swap);                                 //11 Exit when No Swap        
+        }
 }
