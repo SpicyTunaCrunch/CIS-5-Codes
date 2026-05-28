@@ -34,10 +34,14 @@ int main(int argv,char **argc) {
         
         //Mapping Input to Output
         cout << "\nBefore Sorting\n";
-        cout << val2fnd << " found at indez " << linSrch(array, SIZE,val2fnd);
+        cout << val2fnd << " linSrch found at indez " << linSrch(array, SIZE,val2fnd);
+        cout << "\nBefore Sorting\n";
+        cout << val2fnd << " binSerch found at indez " << binSrch(array, SIZE,val2fnd);
         mrkSrt1(array, SIZE);
+        cout << "\n\nAfter Sorting\n";
+        cout << val2fnd << " linSrch found at indez " << linSrch(array, SIZE,val2fnd);
         cout << "\nAfter Sorting\n";
-        cout << val2fnd << " found at indez " << linSrch(array, SIZE,val2fnd);
+        cout << val2fnd << " binSrch found at indez " << binSrch(array, SIZE,val2fnd);
         cout << endl <<endl;
 
         //Display the Results 
@@ -87,7 +91,7 @@ int binSrch(int a[], int n, int val){
                         beg = middle + 1;
                 }
                 else {
-                        end = middle - 2;
+                        end = middle - 1;
                 }
         }while(end >= beg);
         return -1;
