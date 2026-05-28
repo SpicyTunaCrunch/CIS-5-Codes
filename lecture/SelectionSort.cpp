@@ -2,6 +2,7 @@
         Author: Luis Roldan
         Date: May 14, 2026
         Purpose: Mark Sort
+         11:55 in video
 */
 
 // System Libraries
@@ -16,15 +17,11 @@ using namespace std; //STD Name-space where Library is complied
 //Function Prototypes
 void filAray( int[], int);
 void prntAry(int [], int, int);
-void swap1(int&, int &);
-void swap2(int&, int &);
-void smllst(int [], int, int);  //(array, size, position)
-void mrkSrt(int[], int);
+void selSrt(int [], int);
 //Execution Begins Here
 int main(int argv,char **argc) {
         //Set the Random Number Seed
         srand(static_cast<unsigned int>(time(0)));
-
         //Declare Variebales
         const int SIZE = 100;
         int array[SIZE];
@@ -32,11 +29,11 @@ int main(int argv,char **argc) {
         //Initialize Variables
         filAray(array, SIZE);
         prntAry(array, SIZE, 10);
-
-        //Mapping Input to Output
-        mrkSrt(array, SIZE);
-
-        //Display the Results 
+        
+        //Mapping Input to Output 
+        selSrt(array, SIZE);
+        
+        //Display the Results
         prntAry(array, SIZE, 10);
 
         //exit Stage right
@@ -55,27 +52,22 @@ void prntAry(int a[], int n, int perline){
         }
         cout << endl;
 }
-void swap1(int &a, int &b){
-        int temp = a; 
-        a = b;
-        b = temp;
-}
-void swap2(int &a, int &b){
-        a = a^b;
-        b = a^b;
-        a = a^b;
-}
-void mrkSrt(int a[], int n){
-        for (int i = 0; i < n-1; i++){
-                smllst (a, n, i);
-        }
-}
-void smllst(int a[], int n , int pos){
-        for (int j = pos+1; j < n; j++){
-                if (a[pos] > a[j]){
-                  int temp = a[pos]; 
-                  a[pos] = a[j];
-                  a[j] = temp;
+//combination of smllst, and swap1
+void selSrt(int a[], int n){
+        for (int i = 0; i < n-1; i++){          //1 Find min of all sub-list
+                int indx = i;                   //2 Beggining of sublist
+                for (int j = i+1; j < n; j++){  //3 Find min of sublist
+                        if (a[indx] > a[j]){    //4 remember min index
+                        indx = j;               //5 Set min index
+                        }
                 }
+                int temp = a[indx];             //6 Memory Swap
+                a[indx] =  a[i];                //7 Memory Swap
+                a[i] = temp;                    //8 Memory Swap
         }
-}       
+}
+void cpyAray(int b[], int a[], int n){
+        for (int i = 0; i < n; i++){
+                b[i] = a[i];
+        }
+}

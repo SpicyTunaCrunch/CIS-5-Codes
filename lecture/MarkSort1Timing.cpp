@@ -2,6 +2,7 @@
         Author: Luis Roldan
         Date: May 14, 2026
         Purpose: Mark Sort
+         1:08:00 in video
 */
 
 // System Libraries
@@ -16,28 +17,33 @@ using namespace std; //STD Name-space where Library is complied
 //Function Prototypes
 void filAray( int[], int);
 void prntAry(int [], int, int);
-void swap1(int&, int &);
-void swap2(int&, int &);
-void smllst(int [], int, int);  //(array, size, position)
-void mrkSrt(int[], int);
+void mrkSrt1(int[], int);
+void cpyAray(int[], int [], int);
 //Execution Begins Here
 int main(int argv,char **argc) {
         //Set the Random Number Seed
         srand(static_cast<unsigned int>(time(0)));
-
         //Declare Variebales
         const int SIZE = 100;
         int array[SIZE];
+        int brray[SIZE];
 
         //Initialize Variables
         filAray(array, SIZE);
-        prntAry(array, SIZE, 10);
-
+        cpyAray(brray, array, SIZE);
+        //prntAry(array, SIZE, 10);
+        
         //Mapping Input to Output
-        mrkSrt(array, SIZE);
+        int beg = time(0);
+        mrkSrt1(array, SIZE);
+        int end = time(0);
+        cout << "Mark Sort 1 Function Array Size = " << SIZE << " sorted in " << end - beg << " secs." << endl;
 
-        //Display the Results 
-        prntAry(array, SIZE, 10);
+
+        mrkSrt1(brray, SIZE);
+        cout << "Mark Sort 1 Function Array Size = " << SIZE << " sorted in " << end - beg << " secs." << endl;
+        //Display the Results
+        //prntAry(array, SIZE, 10);
 
         //exit Stage right
         return 0;
@@ -45,7 +51,9 @@ int main(int argv,char **argc) {
 //Define Functions
 void filAray( int a[], int n){
         for (int i = 0; i < n; i++){
-                a[i]= rand()%90+10; // [10 - 99]
+                a[i]= rand();
+                a[i]<<= 15;
+                a[i]+=rand();
         }
 }
 void prntAry(int a[], int n, int perline){
@@ -55,27 +63,20 @@ void prntAry(int a[], int n, int perline){
         }
         cout << endl;
 }
-void swap1(int &a, int &b){
-        int temp = a; 
-        a = b;
-        b = temp;
-}
-void swap2(int &a, int &b){
-        a = a^b;
-        b = a^b;
-        a = a^b;
-}
-void mrkSrt(int a[], int n){
+//combination of smllst, and swap1
+void mrkSrt1(int a[], int n){
         for (int i = 0; i < n-1; i++){
-                smllst (a, n, i);
-        }
-}
-void smllst(int a[], int n , int pos){
-        for (int j = pos+1; j < n; j++){
-                if (a[pos] > a[j]){
-                  int temp = a[pos]; 
-                  a[pos] = a[j];
-                  a[j] = temp;
+                for (int j = i+1; j < n; j++){
+                        if (a[i] > a[j]){
+                        int temp = a[i]; 
+                        a[i] = a[j];
+                        a[j] = temp;
+                        }
                 }
         }
-}       
+}
+void cpyAray(int b[], int a[], int n){
+        for (int i = 0; i < n; i++){
+                b[i] = a[i];
+        }
+}

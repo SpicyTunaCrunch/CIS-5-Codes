@@ -16,28 +16,30 @@ using namespace std; //STD Name-space where Library is complied
 //Function Prototypes
 void filAray( int[], int);
 void prntAry(int [], int, int);
-void swap1(int&, int &);
-void swap2(int&, int &);
-void smllst(int [], int, int);  //(array, size, position)
-void mrkSrt(int[], int);
+int linSrch(int [], int, int);
+int binSrch(int [], int, int);
+//void swap1(int&, int &);
+//void swap2(int&, int &);
+//void smllst(int [], int, int);  //(array, size, position)
+void mrkSrt1(int[], int);
 //Execution Begins Here
 int main(int argv,char **argc) {
         //Set the Random Number Seed
         srand(static_cast<unsigned int>(time(0)));
-
         //Declare Variebales
         const int SIZE = 100;
         int array[SIZE];
-
         //Initialize Variables
         filAray(array, SIZE);
-        prntAry(array, SIZE, 10);
-
+        //prntAry(array, SIZE, 10);
+        
         //Mapping Input to Output
-        mrkSrt(array, SIZE);
-
+        int beg=time(0);
+        mrkSrt1(array, SIZE);
+        int end = time(0);
+        cout << "Mark Sort 1 Fucntion Array Size = " << SIZE << " sortrd in " << end-beg<< " secs." << endl;
         //Display the Results 
-        prntAry(array, SIZE, 10);
+        //prntAry(array, SIZE, 10);
 
         //exit Stage right
         return 0;
@@ -45,7 +47,9 @@ int main(int argv,char **argc) {
 //Define Functions
 void filAray( int a[], int n){
         for (int i = 0; i < n; i++){
-                a[i]= rand()%90+10; // [10 - 99]
+                a[i]= rand();
+                a[i]<<= 15;
+                a[i]+=rand();
         }
 }
 void prntAry(int a[], int n, int perline){
@@ -55,7 +59,7 @@ void prntAry(int a[], int n, int perline){
         }
         cout << endl;
 }
-void swap1(int &a, int &b){
+/*void swap1(int &a, int &b){
         int temp = a; 
         a = b;
         b = temp;
@@ -65,11 +69,6 @@ void swap2(int &a, int &b){
         b = a^b;
         a = a^b;
 }
-void mrkSrt(int a[], int n){
-        for (int i = 0; i < n-1; i++){
-                smllst (a, n, i);
-        }
-}
 void smllst(int a[], int n , int pos){
         for (int j = pos+1; j < n; j++){
                 if (a[pos] > a[j]){
@@ -78,4 +77,36 @@ void smllst(int a[], int n , int pos){
                   a[j] = temp;
                 }
         }
-}       
+}       */
+//combination of smllst, and swap1
+void mrkSrt1(int a[], int n){
+        for (int i = 0; i < n-1; i++){
+                for (int j = i+1; j < n; j++){
+                        if (a[i] > a[j]){
+                        int temp = a[i]; 
+                        a[i] = a[j];
+                        a[j] = temp;
+                        }
+                }
+        }
+}
+int linSrch(int a[], int n, int val){
+        for (int i = 0; i <n ; i++){
+                if (a[i] == val) return i;
+        }
+        return -1;
+}
+int binSrch(int a[], int n, int val){
+        int beg = 0, end = n-1; //Beginning and end of array index
+        do{
+                int middle = (beg +end) / 2;
+                if(a[middle] == val ) return middle;
+                else if (val > a[middle]){
+                        beg = middle + 1;
+                }
+                else {
+                        end = middle - 2;
+                }
+        }while(end >= beg);
+        return -1;
+}
