@@ -53,7 +53,7 @@ void prntAry(int a[], int n, int perline){
         cout << endl;
 }
 //combination of smllst, and swap1
-void selSrt(int a[], int n){
+void selSrt(int a[], int n){    //Mark Sort
         for (int i = 0; i < n-1; i++){          //1 Find min of all sub-list
                 int indx = i;                   //2 Beggining of sublist
                 for (int j = i+1; j < n; j++){  //3 Find min of sublist
