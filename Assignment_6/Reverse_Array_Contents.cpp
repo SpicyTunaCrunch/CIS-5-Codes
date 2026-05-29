@@ -10,6 +10,7 @@
 #include <ctime> //time to set random number seed
 #include <cmath> //math library
 #include <iomanip> //formating library
+using namespace std; //Entity organizer
 
 //protortpes
 void init(int [], int); //initialize array
@@ -31,9 +32,32 @@ int main(int argc, char** argv){
     reverse(test, SIZE);
 
     //Display
-    print(test, SIZE, 10);
+   print(test, SIZE, 10);
 
     return 0;
+}
+void init(int t[], int n)
+{
+    for (int i = 0; i < n; i++){
+        cin >> t[i];
+    }
+}
+void reverse(int t[], int n)
+{
+    for (int i = 0; i < n; i++){
+        int temp = t[i];
+        t[i] = t[n - 1 - i];
+        t[n - 1 - i] = temp; 
+    }
+}
+void print(int t[], int n, int m)
+{
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < 10; j++){
+            cout << t[i] << " ";
+        }
+    cout << endl;
+    }
 }
 /*
 input:
