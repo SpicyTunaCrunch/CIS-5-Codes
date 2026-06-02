@@ -11,7 +11,7 @@
 using namespace std; //STD Name-space where Library is complied
 
 //User Libraries 
-//Global Constants - Scientific/Pysics/Chemestry/Conversions Hgiher Dimensions
+//Global Constants - Scientific/Pysics/Chemestry/Conversions Higher Dimensions
 
 //Function Prototypes
 void filAray( int[], int);
