@@ -6,19 +6,17 @@
 
 // sys libraries
 #include <iostream> // Input/output library
-#include <cstdlib>  // Random f(x)
-#include <ctime>    // Time Library
 using namespace std;
 
 //prototypes
 void fillAry(int[], int);
 void prntAry(int [], int, int);
-bool linSrch(int [], int, int, int);
+bool linSrch(int [], int, int, int &);
 
 //main f(x)
 int main(int argc, char** argv){
     //Random seed
-    srand(static_cast<unsigned int>(time(0)));
+    //srand(static_cast<unsigned int>(time(0)));
 
     //Variables
     const int SIZE = 100;
@@ -32,32 +30,35 @@ int main(int argc, char** argv){
 
     //Display output
     prntAry(array, SIZE, 10);
-    if (linSrch(array, SIZE, val, indx))
+    if (linSrch(array, SIZE, val, indx)){
         cout << val << " was found at indx = " << indx << endl;
-
+    }
     return 0;
 }
 void fillAry(int a[],  int n)
 {
     for(int i = 0; i < n; i++){
-        a[i] = rand() % 90 + 10;
+        int num;
+        cin >> num;
+        a[i] = num;
     }
 }
 void prntAry(int a[], int n, int line)
 {
     for (int i = 0; i < n; i++){
-        cout << a[i] << " ";
+        //cout << a[i] << " ";
         if (i % line == (line -1)){
-            cout << endl;
+          //  cout << endl;
         }
     }
 }
-bool linSrch(int a[], int n, int val, int indx)
+bool linSrch(int a[], int n, int val, int &indx)
 {
-    for (int i = 0; i < n - 1; i++){
+    for (int i = 0; i < n; i++){
         if (a[i] == val ) {
-            return i;
+            indx = i;
+            return true;
         }
     }
-    return -1;
+    return false;
 }
