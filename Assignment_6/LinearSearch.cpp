@@ -1,11 +1,12 @@
 /*
+*File: Problem 6
 *Author: Luis Roldan
 *Created on May 29th, 2026
 *Purpose: Find a value in an array
 */
 
 // sys libraries
-#include <iostream> // Input/output library
+#include <iostream> // Input/output library4
 using namespace std;
 
 //prototypes

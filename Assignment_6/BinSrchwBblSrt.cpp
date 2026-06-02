@@ -5,27 +5,28 @@
 *Purpose: Binary search
 */
 
+//sys lib
 #include <iostream> //input output lib
 using namespace std;
 
 //prototypes
 void filAry(int [], int);
 void prntAry(int [], int, int);
-void selSrt(int [], int);
-int binSrch(int [], int, int, int&);
+void bblSrt(int [], int);
+int binSrch(int [], int, int, int &);
 
 //main f(x)
 int main(int argc, char** argv){
-    //vatriables
+    //variables
     const int SIZE = 100;
     int array[SIZE];
     int indx, val;
 
-    //nitialization
+    //initialization
     filAry(array, SIZE);
-    
-    //sorting
-    selSrt(array, SIZE);
+
+    //sort
+    bblSrt(array, SIZE);
 
     //display
     prntAry(array, SIZE, 10);
@@ -35,8 +36,9 @@ int main(int argc, char** argv){
         cout << val << " was found at indx = " << indx << endl;
     }
 
-    return 0;
+
 }
+//function defs
 void filAry(int a[], int n){
     for (int i = 0; i < n; i++){
         int nm;
@@ -44,19 +46,23 @@ void filAry(int a[], int n){
         a[i] = nm;
     }
 }
-void selSrt(int a[], int n){
-    for (int i = 0; i < n; i++){
-        for (int j = i; j < n; j++){
-            if (a[i] > a[j]){
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+void bblSrt( int a[], int n){
+    bool swap;
+    do{
+        swap = false; 
+        for (int i =0; i < n-1; i++){
+            if (a[i] > a[i + 1]){
+                int t = a[i];
+                a[i] = a[i +1 ];
+                a[i + 1] = t;
+                swap = true;
             }
         }
-    }
+        n--;
+    }while (swap);
 }
 void prntAry(int a[], int n, int perline){
-    for (int i = 0; i < n; i++){
+    for (int i = 0 ; i < n; i++){
         cout << a[i] << " ";
         if (i%perline == (perline -1)){
             cout << endl;
@@ -65,17 +71,18 @@ void prntAry(int a[], int n, int perline){
     cout << endl;
 }
 int binSrch(int a[], int n, int val, int &indx){
-    int beg = 0,
-    end = (n-1); 
+    int b = 0,
+    e  = (n-1);
     do {
-        int mid = (beg + end) / 2;
-        if (a[mid] == val){
-            indx = mid;
+        int m = (b + e) /2;
+        if (a[m] == val){
+            indx = m;
             return indx;
-        } else if (val > a[mid]){
-            beg = mid  + 1;
-        } else {
-            end = mid - 1;  }
-    }while (end >= beg);
-    return -1;
+        } else if (val > a[m]){
+            b = m + 1;
+        }else {
+            e = m -1;
+        }
+    }while (e >=b);
+    return  -1;
 }

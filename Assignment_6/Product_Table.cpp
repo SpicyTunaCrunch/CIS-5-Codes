@@ -1,5 +1,5 @@
 /*
-*File: Problem 1
+*File: Problem 2
 *Author: Luis Roldan
 *Created on May 27, 2026
 *Purpose: Create a dice table
