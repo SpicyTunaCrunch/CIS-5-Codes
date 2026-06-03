@@ -7,7 +7,7 @@
 
 //sys libraries
 #include <iostream> //input-output library
-#include <string.h> //string libray
+#include <string> //string libray
 #include <fstream> //File in-out library
 using namespace std; //Entity organizer
 
@@ -43,11 +43,7 @@ int main(int argc, char** argv){
 }
 void read(const char file[], string &data)
 {
-    ifstream in(file);
-    if (in){
-        cin >> data;
-    }
-    in.close();
+    for (int i = 0; i <  i++ )
 }
 int compare(const string &key, const string &answers, string &score)
 {
