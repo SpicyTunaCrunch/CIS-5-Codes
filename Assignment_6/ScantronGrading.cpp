@@ -41,9 +41,33 @@ int main(int argc, char** argv){
 
     return 0;
 }
-void read(const char [], string &);
+void read(const char file[], string &data)
 {
-
+    ifstream in(file);
+    if (in){
+        cin >> data;
+    }
+    in.close();
+}
+int compare(const string &key, const string &answers, string &score)
+{
+    int crct = 0;
+    for (int i = 0; i < key.size(); i++){
+        if (key[i] == answers[i]){
+            score += 'C';
+            crct++;
+        } else {
+            score += 'W';
+        }
+    }
+    return crct;
+}
+void print(const string &str)
+{
+    for (int i = 0; i < str.size(); i++){
+        cout << str[i] << ' ';
+    }
+    cout << endl;
 }
 /*
 Input:
