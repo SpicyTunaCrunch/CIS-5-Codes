@@ -187,5 +187,7 @@ int main(int argc, char** argv) {
         
     }while (hits < 3);
 
+    cout << "You sunk all the ships!" << endl;
+
     return 0;
 }

@@ -1,11 +1,12 @@
 /*
 *Author: Luis Roldan
-*Created on May 22, 20
+*Created on June 4, 2026
 *Purpose: Battle Ship Board version 1
 */
 
 #include <iostream>
 using namespace std;
+
 
 int main(int argc, char** argv) {
     //gridd creation
