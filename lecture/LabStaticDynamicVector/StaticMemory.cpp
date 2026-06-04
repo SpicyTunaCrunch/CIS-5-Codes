@@ -23,7 +23,7 @@ int main(int argv,char **argc){
 	srand(static_cast<unsigned int>(time(0)));
 	
 	//Declare Variables
-	const int SIZE=5000000;
+	const int SIZE=5000000000;
 	int array[SIZE];
 
 	//Fill Array
