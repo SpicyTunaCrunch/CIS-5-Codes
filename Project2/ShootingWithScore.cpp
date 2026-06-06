@@ -8,6 +8,7 @@
 #include <iostream> // input output lib
 #include <cstdlib>  //random seed 
 #include <ctime> //randomization
+#include <iomanip> //formating
 using namespace std;
 
 //prototypes
@@ -38,6 +39,7 @@ int main (int argc, char** argv){
 
     game(cells,dsply, ROWS, SHIPS);
 
+    return 0;
     
 }
 void initBrd(char brd[][5], int r, int c){     //instead of initializing every cell,
@@ -75,17 +77,53 @@ void shpPlc(char brd[][5], int r, int c, int ship){    //Ship placment
 }
 void game(char cells[][5], char dsply[][5], int n, int ships){
     int 
-    atmp = 0,   //attempts before the game ends
+    atmps = 0,   //attempts before the game ends
     hits = 0;   //how many ships were hit
+    float
+    acrcy = 0.0f; //Accuracy epending on how may attempts 
 
     while (hits < ships){
-        cout << "\nAttempts: " << atmp << endl;
+        cout << "\nAttempts: " << atmps << endl;
         prntBrd(dsply, n, n);
         
         //asking user where to shoot
         char row;
         int col;
         
+        //making sure user does go outside bounds
+        cout << "Ener row (A-E): ";
+        cin >> row;
+        while (row < 'A' || row > 'E' ){
+            cout << "Invalid input, try again.\nEnter row (A-E): ";
+            cin >> row;    
+            }
 
+        cout << "Enter column (1-5): ";
+        cin >> col;
+        while (col < 1 || col > 5){
+            cout << "Invalid input, try again.\nEnter column (1-5): ";
+            cin >> col;
+        }
+
+        int r = row - 'A';
+        int c = col - 1;
+
+        atmps++;
+
+        if (cells[r][c] == 'S'){
+            dsply[r][c] = 'X';
+            cells[r][c] = 'H';
+            hits++;
+            cout << "HIT!\n";
+        } else {
+            dsply[r][c] = 'O';
+            cout << "MISS!\n";
+        }
     }
+    cout << "\n!YOU WON!\n";
+    
+    cout << "Stats\nAttempts: " << atmps << endl;
+    acrcy = static_cast<float>(hits) / atmps * 100.0f;
+    cout << fixed << setprecision(2);
+    cout << "Accuracy: " << acrcy << "%\n";
 }
