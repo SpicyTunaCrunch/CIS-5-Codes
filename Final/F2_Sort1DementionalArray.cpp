@@ -1,5 +1,5 @@
 /*
-*File: F2 Sort a 1 Demensional Array of Characters
+*File: Final Question 2
 *Author: Luis Roldan
 *Created on June 8,2026
 *Purpose: Sort a 1 Demesional Array of Chaacters
@@ -41,12 +41,13 @@ int main(int argc,char** argv){
 }
 //defining f(x)
 int read(char a[]){
-    int SIZE;
-    cin >> SIZE; 
-    for (int i = 0; i < SIZE; i++){
-        cin >> a[i];
+    char sAry[80];
+    cin >> sAry;
+    int size = strlen(sAry);
+    for (int i= 0; i < size; i++){
+        a[i] = sAry[i];
     }
-    return SIZE;
+    return size;
 }
 void sort(char a[], int n){
     for (int i = 0; i < n -1; i++){
@@ -64,14 +65,3 @@ void print(const char a[], int n){
     cout<< endl;
 }
 
-/*
-input:
-5↵
-54321↵
-
-expected output:
-Read·in·a·1·dimensional·array·of·characters·and·sort↵
-Input·the·array·size·where·size·<=·20↵
-Now·read·the·Array↵
-12345↵
-*/
